@@ -12,7 +12,8 @@ class TagList extends React.Component {
   render() {
     const { color, children } = this.props;
     return (
-      <ul enabled={this.state.enabled} onClick={this.toggleElement} className={"tags " + color}>
+      <ul enabled={this.state.enabled} className={"tags " + color}>
+      <h2 onClick={this.toggleElement}>Tags</h2>
         {children}
       </ul>
     );

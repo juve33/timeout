@@ -20,6 +20,7 @@
 
 	transition: all .25s;
 	cursor: pointer;
+	user-select: none;
 	overflow: hidden;
 }
 

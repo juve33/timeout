@@ -78,6 +78,7 @@ header {
 	justify-content: center;
 	align-items: center;
 	overflow: visible;
+	user-select: none;
 
 	font-size: var(--header-height);
 	line-height: var(--header-height);
