@@ -132,7 +132,9 @@ footer {
 	}
 
 	.wrapper {
-		--aside-width: 5vw;
+		--aside-width: 20vw;
+		width: calc(100vw - 1rem - var(--aside-width));
+	  padding: 1rem 1rem 0 var(--aside-width);
 	}
 
 	.menu {
@@ -150,9 +152,13 @@ footer {
 	header {
 		padding-left: calc(var(--header-height) / 2);
 	}
+}
 
+@media screen and ((max-width: 512px) or (orientation: portrait)) {
 	.wrapper {
 		--aside-width: 1vw;
+		width: calc(100vw - 2 * var(--aside-width));
+	  padding: 1rem var(--aside-width) 0;
 	}
 
 	.menu {

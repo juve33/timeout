@@ -1,4 +1,4 @@
-.card {
+.folder {
   --padding-sides: 1em;
   --left: 5%;
 
@@ -14,14 +14,38 @@
   justify-content: center;
   align-items: center;
 	cursor: pointer;
+  user-select: none;
   transition: all .25s;
 }
 
-.card[enabled="true"] {
+.folder[enabled="true"] {
   color: var(--accent-color);
-  box-shadow: inset calc(var(--padding-sides) / 2) 0 var(--accent-color);
+  box-shadow: inset calc(var(--padding-sides) / 2) 0 var(--accent-color), inset 0px 0px 0px .1em var(--light-shadow);
 }
 
-.card:first-of-type {
+.folder:first-of-type {
   margin-top: 0;
+}
+
+.folder:last-of-type {
+  margin-bottom: 1em;
+}
+
+@media screen and ((max-width: 512px) or (orientation: portrait)) {
+  .folder {
+    --padding-sides: 1em;
+    --left: 0;
+
+    display: inline-block;
+
+    width: calc(50% - 4 * var(--padding-sides));
+    margin: 1em 1em 0;
+  	padding: 2em var(--padding-sides);
+    box-shadow: inset .25em 0 var(--accent-color), inset 0px 0px 0px .1em var(--light-shadow);
+  }
+
+  .folder[enabled="true"] {
+    color: var(--text-color);
+    box-shadow: inset .25em 0 var(--accent-color), inset 0px 0px 0px .1em var(--light-shadow);
+  }
 }

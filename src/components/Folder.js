@@ -12,7 +12,7 @@ class Folder extends React.Component {
   render() {
     const { color, content } = this.props;
     return (
-      <li enabled={this.state.enabled} onClick={this.toggleElement} className={"card " + color}>
+      <li enabled={this.state.enabled} onClick={this.toggleElement} className={"folder " + color}>
         {content}
       </li>
     );
