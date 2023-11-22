@@ -1,0 +1,48 @@
+html {
+  --font-color: #000;
+	--background-color: #fff;
+
+  --accent-color: darkcyan;
+  --translucent-accent-color: rgba(0,139,139,0.5);
+	--shadow: rgba(0,0,0,.25);
+}
+
+/* dark mode */
+@media screen and (prefers-color-scheme: dark) {
+	html {
+		--font-color: #fff;
+		--background-color: #333;
+		--shadow: rgba(0,0,0,.5);
+  }
+}
+
+
+.blue {
+    --accent-color: #33f;
+    --translucent-accent-color: rgba(51,51,255,0.5);
+}
+
+.green {
+    --accent-color: #0f0;
+    --translucent-accent-color: rgba(0,255,0,0.5);
+}
+
+.yellow {
+    --accent-color: #fd0;
+    --translucent-accent-color: rgba(255,221,0,0.5);
+}
+
+.orange {
+    --accent-color: #f80;
+    --translucent-accent-color: rgba(255,136,0,0.5);
+}
+
+.red {
+    --accent-color: #f00;
+    --translucent-accent-color: rgba(255,0,0,0.5);
+}
+
+.purple {
+    --accent-color: #f0f;
+    --translucent-accent-color: rgba(255,0,255,0.5);
+}

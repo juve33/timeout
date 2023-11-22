@@ -1,0 +1,46 @@
+ul.tags {
+    display: block;
+		margin-bottom: 1vw;
+}
+
+ul.tags::before {
+    content: 'Tags:';
+		position: relative;
+		top: 3px;
+}
+
+.add {
+	--size: 4rem;
+	font-size: var(--size);
+	font-weight: 100;
+
+	aspect-ratio: 1/1;
+	width: var(--size);
+
+	position: fixed;
+	right: 1.5rem;
+	bottom: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: var(--background-color);
+	background-color: var(--accent-color);
+	border-radius: calc(var(--size) / 2);
+	box-shadow: 0 0 1rem var(--shadow);
+
+	transition: all .25s;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.add:hover {
+	color: var(--accent-color);
+	background-color: var(--background-color);
+}
+
+@media screen and (max-width: 512px) {
+	ul.tags {
+		margin-bottom: 3vw;
+	}
+}

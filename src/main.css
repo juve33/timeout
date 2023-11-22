@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&family=Montserrat:wght@100;400;700;900&display=swap');
+@import url('colors.css');
+
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, button, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+  color: inherit;
+  text-decoration: inherit;
+	vertical-align: middle;
+  overflow-x: hidden;
+}
+
+html {
+	font-size: max(1vw,12px);
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* Edge */
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+
+	--header-height: max(6.5vmin, calc(12px + 1rem));
+	--footer-height: 2rem;
+}
+
+html::-webkit-scrollbar {
+	 display: none; /* Chrome, Safari, Opera */
+}
+
+.wrapper {
+    width: 70vw;
+		min-height: calc(100vh - 1rem - var(--header-height));
+    padding: 1rem 15vw 0;
+		margin-top: var(--header-height);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+body {
+	line-height: 1;
+	overflow-x: hidden;
+	color: var(--font-color);
+	background-color: var(--background-color);
+	font-family: var(--text-font);
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+	--menu-size: calc(var(--header-height) - 1rem);
+
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: var(--header-height);
+
+	background-color: var(--background-color);
+	box-shadow: 0 0 1rem var(--shadow);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: visible;
+
+	font-size: var(--header-height);
+	line-height: var(--header-height);
+	font-family: 'Italianno', 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.menu {
+	aspect-ratio: 1/1;
+	height: var(--menu-size);
+
+	font-weight: 900;
+	font-family: 'Montserrat', sans-serif;
+	font-size: calc(var(--header-height) - 1rem);
+
+	background-color: var(--background-color);
+	box-shadow: 0 0 .5rem var(--shadow);
+	border-radius: calc(var(--menu-size) / 5);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	left: .5rem;
+	top: .5rem;
+
+	overflow: hidden;
+	cursor: pointer;
+}
+
+footer {
+	min-height: var(--footer-height);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color: var(--accent-color);
+	color: var(--background-color);
+}
+
+@media screen and (max-width: 1080px) {
+	html {
+		--header-height: max(10vmin, calc(12px + 2rem));
+	}
+
+	header {
+		--menu-size: calc(var(--header-height) - 1rem);
+		padding-left: calc(var(--header-height) * .4);
+	}
+
+	.wrapper {
+		width: 90vw;
+		padding: 1rem 5vw 0;
+	}
+
+	.menu {
+		font-size: calc(var(--header-height) - 1rem);
+		left: .5rem;
+		top: .5rem;
+	}
+}
+
+@media screen and (max-width: 512px) {
+	html {
+		--header-height: max(14vmin, calc(12px + 2.5rem));
+	}
+
+	header {
+		padding-left: calc(var(--header-height) / 2);
+	}
+
+	.wrapper {
+		width: 98vw;
+		padding: 1rem 1vw 0;
+	}
+
+	.menu {
+		font-size: calc(var(--header-height) - 1rem);
+		left: .5rem;
+		top: .5rem;
+	}
+}
