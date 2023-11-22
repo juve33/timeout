@@ -6,15 +6,18 @@ ul.tags {
   text-align: left;
   width: var(--aside-width);
   height: 3rem;
+  margin-bottom: .5rem;
 
   overflow: hidden;
 
-  transition: all .25s;
+  transition: transform .25s;
 }
 
 ul.folders[enabled="true"],
 ul.tags[enabled="true"] {
   height: auto;
+  margin-bottom: 0;
+  padding-bottom: .5rem;
 }
 
 ul.folders h2,

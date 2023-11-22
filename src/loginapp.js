@@ -8,6 +8,8 @@ class LoginApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {currentPage: "startPage"};
+    this.startLogin = this.startLogin.bind(this);
+    this.login = this.login.bind(this);
   }
 
   startLogin = () => {

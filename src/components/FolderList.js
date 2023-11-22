@@ -20,7 +20,7 @@ class FolderList extends React.Component {
   }
 
   toggleElement() {
-    if (this.state.enabled == "false") {
+    if (this.state.enabled === "false") {
       this.setState({ enabled: "true"});
     } else {
       this.setState({ enabled: "false"});
