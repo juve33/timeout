@@ -14,7 +14,6 @@
   justify-content: center;
   align-items: center;
 	cursor: pointer;
-  user-select: none;
   transition: all .25s;
 }
 
@@ -47,5 +46,9 @@
   .folder[enabled="true"] {
     color: var(--text-color);
     box-shadow: inset .25em 0 var(--accent-color), inset 0px 0px 0px .1em var(--light-shadow);
+  }
+
+  .folder:nth-of-type(2) {
+    margin-top: 0;
   }
 }

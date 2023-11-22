@@ -1,4 +1,19 @@
 ul.folders,
+ul.tags,
+ul.tasks {
+  overflow: hidden;
+  scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* Edge */
+  user-select: none;
+}
+
+ul.folders::-webkit-scrollbar,
+ul.tags::-webkit-scrollbar,
+ul.tasks::-webkit-scrollbar { /* Chrome, Safari, Opera */
+	 display: none;
+}
+
+ul.folders,
 ul.tags {
   position: relative;
   right: calc(var(--aside-width) - .5rem);
@@ -6,16 +21,24 @@ ul.tags {
   text-align: left;
   width: calc(var(--aside-width) - 1rem);
   height: 3rem;
+  max-height: calc((100vh - 3rem - var(--header-height)) / 2);
   margin-bottom: 1rem;
 
-  overflow: hidden;
-
   box-shadow: inset 0px 0px 0px .1em var(--light-shadow);
+}
+
+ul.tasks {
+  position: absolute;
+  top: 0;
+  width: calc(100vw - 1rem - 2 * var(--aside-width));
+  height: calc(100vh - 2rem - var(--header-height));
+  margin: 1rem .5rem;
 }
 
 ul.folders[enabled="true"],
 ul.tags[enabled="true"] {
   height: auto;
+  overflow-y: scroll;
 }
 
 ul.folders h2,
@@ -28,7 +51,10 @@ ul.tags h2 {
   width: 90%;
   padding: 1em 5%;
 	cursor: pointer;
-  user-select: none;
+}
+
+ul.tasks h2 {
+  display: none;
 }
 
 ul.folders h2::after,
@@ -67,10 +93,44 @@ ul.tags li {
   margin: 0 .25em .5em;
 }
 
+@media screen and (max-width: 1080px) {
+  ul.tasks {
+    width: calc(100vw - 1.5rem - var(--aside-width));
+  }
+}
+
 @media screen and ((max-width: 512px) or (orientation: portrait)) {
   ul.folders,
   ul.tags {
     right: 0;
     width: 100%;
+  }
+
+  ul.tasks {
+    left: 100%;
+    margin: 0;
+    padding: 1rem var(--aside-width) var(--aside-width);
+    width: calc(100vw - 2 * var(--aside-width));
+    height: calc(100vh - 1rem - var(--header-height) - var(--aside-width));
+
+    background-color: var(--background-color);
+  }
+
+  ul.tasks h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-align: left;
+
+    display: block;
+    position: relative;
+    width: calc(100% - 1em);
+    padding-left: calc(1em + 1ch);
+  }
+
+  ul.tasks h2::before {
+    content: '←';
+
+    position: absolute;
+    left: 0;
   }
 }

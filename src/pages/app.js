@@ -4,6 +4,7 @@ import FolderList from '../components/FolderList';
 import Folder from '../components/Folder';
 import TagList from '../components/TagList';
 import Tag from '../components/Tag';
+import TaskList from '../components/TaskList';
 
 import './app.css';
 
@@ -39,6 +40,8 @@ class App extends React.Component {
         <TagList>
           {tags.map((tag) => <Tag key={tag.id} content={tag.title} color={tag.color} />)}
         </TagList>
+        <TaskList title="Test">
+        </TaskList>
         <div className="add">+</div>
       </div>
     );

@@ -27,7 +27,8 @@ ul.tags li::before {
 
 button:hover,
 input[type="submit"]:hover,
-ul.tags li:hover {
+ul.tags li:hover,
+ul.tags li[enabled="true"] {
 	color: var(--accent-color);
 	background-color: var(--background-color);
 	box-shadow: inset 0px 0px 0px .1em var(--accent-color);

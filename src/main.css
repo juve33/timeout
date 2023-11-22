@@ -20,10 +20,11 @@ section, summary, time, mark, audio, video {
   color: inherit;
   text-decoration: inherit;
 	vertical-align: middle;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 html {
+	overflow-y: scroll;
 	font-size: max(1vw,12px);
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none; /* Edge */
@@ -35,18 +36,19 @@ html {
 	--footer-height: 2rem;
 }
 
-html::-webkit-scrollbar {
-	 display: none; /* Chrome, Safari, Opera */
+html::-webkit-scrollbar { /* Chrome, Safari, Opera */
+	 display: none;
 }
 
 .wrapper {
 	--aside-width: 15vw;
+	position: relative;
   width: calc(100vw - 2 * var(--aside-width));
-	min-height: calc(100vh - 1rem - var(--header-height));
+	height: calc(100vh - 1rem - var(--header-height));
   padding: 1rem var(--aside-width) 0;
 	margin-top: var(--header-height);
   text-align: center;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
