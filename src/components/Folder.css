@@ -19,7 +19,7 @@
 
 .card[enabled="true"] {
   color: var(--accent-color);
-  box-shadow: inset .2em 0 var(--accent-color),0 0 .5em var(--shadow);
+  box-shadow: inset calc(var(--padding-sides) / 2) 0 var(--accent-color);
 }
 
 .card:first-of-type {
