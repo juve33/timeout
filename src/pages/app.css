@@ -1,14 +1,3 @@
-ul.tags {
-    display: block;
-		margin-bottom: 1vw;
-}
-
-ul.tags::before {
-    content: 'Tags:';
-		position: relative;
-		top: 3px;
-}
-
 .add {
 	--size: 4rem;
 	font-size: var(--size);
@@ -31,16 +20,11 @@ ul.tags::before {
 
 	transition: all .25s;
 	cursor: pointer;
+	user-select: none;
 	overflow: hidden;
 }
 
 .add:hover {
 	color: var(--accent-color);
 	background-color: var(--background-color);
-}
-
-@media screen and (max-width: 512px) {
-	ul.tags {
-		margin-bottom: 3vw;
-	}
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './Buttons.css';
+import './Folder.css';
 
-class Tag extends React.Component {
+class Folder extends React.Component {
   constructor(props) {
     super(props);
     this.state = { enabled: "false" };
@@ -12,7 +12,7 @@ class Tag extends React.Component {
   render() {
     const { color, content } = this.props;
     return (
-      <li enabled={this.state.enabled} onClick={this.toggleElement} className={color}>
+      <li enabled={this.state.enabled} onClick={this.toggleElement} className={"folder " + color}>
         {content}
       </li>
     );
@@ -27,4 +27,4 @@ class Tag extends React.Component {
   }
 }
 
-export default Tag;
+export default Folder;

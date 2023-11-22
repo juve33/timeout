@@ -1,20 +1,21 @@
 import React from 'react';
 
-import './Buttons.css';
+import './AppLists.css';
 
-class Tag extends React.Component {
+class FolderList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { enabled: "false" };
+    this.state = { enabled: "true" };
     this.toggleElement = this.toggleElement.bind(this);
   }
 
   render() {
-    const { color, content } = this.props;
+    const { color, children } = this.props;
     return (
-      <li enabled={this.state.enabled} onClick={this.toggleElement} className={color}>
-        {content}
-      </li>
+      <ul enabled={this.state.enabled} className={"folders " + color}>
+        <h2 onClick={this.toggleElement}>Folders</h2>
+        {children}
+      </ul>
     );
   }
 
@@ -27,4 +28,4 @@ class Tag extends React.Component {
   }
 }
 
-export default Tag;
+export default FolderList;

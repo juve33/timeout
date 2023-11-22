@@ -2,33 +2,14 @@ import React from 'react';
 
 import StartPage from './pages/startpage';
 import Login from './pages/login';
-import Overview from './pages/overview';
+import App from './pages/app';
 
-import Card from './components/Card';
-import TagList from './components/TagList';
-import Tag from './components/Tag';
-
-const folders = [
-  {title: 'Überfällig', color: 'red'},
-  {title: 'Heute', color: 'orange'},
-  {title: 'Morgen', color: 'yellow'},
-  {title: 'Bald', color: 'blue'},
-  {title: 'Erledigt', color: 'green'},
-  {title: 'noch ein Ordner', color: 'purple'}
-];
-
-const tags = [
-  {title: "Haushalt"},
-  {title: "Freunde"},
-  {title: "Sport"},
-  {title: "Studium"},
-  {title: "Sonstiges"},
-];
-
-class App extends React.Component {
+class LoginApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {currentPage: "startPage"};
+    this.startLogin = this.startLogin.bind(this);
+    this.login = this.login.bind(this);
   }
 
   startLogin = () => {
@@ -36,7 +17,7 @@ class App extends React.Component {
   }
 
   login = () => {
-    this.setState({currentPage: "overview"});
+    this.setState({currentPage: "loggedIn"});
   }
 
   render() {
@@ -59,15 +40,10 @@ class App extends React.Component {
           </>
         );
       }
-      case "overview": {
+      case "loggedIn": {
         return (
           <>
-            <Overview>
-              {folders.map((folder) => <Card content={folder.title} color={folder.color} />)}
-              <TagList>
-                {tags.map((tag) => <Tag content={tag.title} color={tag.color} />)}
-              </TagList>
-            </Overview>
+            <App />
           </>
         );
       }
@@ -84,4 +60,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default LoginApp;

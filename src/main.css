@@ -20,10 +20,11 @@ section, summary, time, mark, audio, video {
   color: inherit;
   text-decoration: inherit;
 	vertical-align: middle;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 html {
+	overflow-y: scroll;
 	font-size: max(1vw,12px);
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none; /* Edge */
@@ -35,17 +36,19 @@ html {
 	--footer-height: 2rem;
 }
 
-html::-webkit-scrollbar {
-	 display: none; /* Chrome, Safari, Opera */
+html::-webkit-scrollbar { /* Chrome, Safari, Opera */
+	 display: none;
 }
 
 .wrapper {
-    width: 70vw;
-		min-height: calc(100vh - 1rem - var(--header-height));
-    padding: 1rem 15vw 0;
-		margin-top: var(--header-height);
-    text-align: center;
-    overflow-x: hidden;
+	--aside-width: 15vw;
+	position: relative;
+  width: calc(100vw - 2 * var(--aside-width));
+	height: calc(100vh - 1rem - var(--header-height));
+  padding: 1rem var(--aside-width) 0;
+	margin-top: var(--header-height);
+  text-align: center;
+  overflow: hidden;
 }
 
 body {
@@ -77,6 +80,7 @@ header {
 	justify-content: center;
 	align-items: center;
 	overflow: visible;
+	user-select: none;
 
 	font-size: var(--header-height);
 	line-height: var(--header-height);
@@ -130,8 +134,9 @@ footer {
 	}
 
 	.wrapper {
-		width: 90vw;
-		padding: 1rem 5vw 0;
+		--aside-width: 20vw;
+		width: calc(100vw - 1rem - var(--aside-width));
+	  padding: 1rem 1rem 0 var(--aside-width);
 	}
 
 	.menu {
@@ -149,10 +154,13 @@ footer {
 	header {
 		padding-left: calc(var(--header-height) / 2);
 	}
+}
 
+@media screen and ((max-width: 512px) or (orientation: portrait)) {
 	.wrapper {
-		width: 98vw;
-		padding: 1rem 1vw 0;
+		--aside-width: 1vw;
+		width: calc(100vw - 2 * var(--aside-width));
+	  padding: 1rem var(--aside-width) 0;
 	}
 
 	.menu {
