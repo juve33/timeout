@@ -2,7 +2,7 @@ import React from 'react';
 
 import './AppLists.css';
 
-class TagList extends React.Component {
+class FolderList extends React.Component {
   constructor(props) {
     super(props);
     this.state = { enabled: "false" };
@@ -12,7 +12,7 @@ class TagList extends React.Component {
   render() {
     const { color, children } = this.props;
     return (
-      <ul enabled={this.state.enabled} onClick={this.toggleElement} className={"tags " + color}>
+      <ul enabled={this.state.enabled} onClick={this.toggleElement} className={"folders " + color}>
         {children}
       </ul>
     );
@@ -27,4 +27,4 @@ class TagList extends React.Component {
   }
 }
 
-export default TagList;
+export default FolderList;

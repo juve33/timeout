@@ -40,12 +40,13 @@ html::-webkit-scrollbar {
 }
 
 .wrapper {
-    width: 70vw;
-		min-height: calc(100vh - 1rem - var(--header-height));
-    padding: 1rem 15vw 0;
-		margin-top: var(--header-height);
-    text-align: center;
-    overflow-x: hidden;
+	--aside-width: 15vw;
+  width: calc(100vw - 2 * var(--aside-width));
+	min-height: calc(100vh - 1rem - var(--header-height));
+  padding: 1rem var(--aside-width) 0;
+	margin-top: var(--header-height);
+  text-align: center;
+  overflow-x: hidden;
 }
 
 body {
@@ -130,8 +131,7 @@ footer {
 	}
 
 	.wrapper {
-		width: 90vw;
-		padding: 1rem 5vw 0;
+		--aside-width: 5vw;
 	}
 
 	.menu {
@@ -151,8 +151,7 @@ footer {
 	}
 
 	.wrapper {
-		width: 98vw;
-		padding: 1rem 1vw 0;
+		--aside-width: 1vw;
 	}
 
 	.menu {
