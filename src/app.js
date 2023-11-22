@@ -49,7 +49,6 @@ class App extends React.Component {
             </StartPage>
           </>
         );
-        break;
       }
       case "startLogin": {
         return (
@@ -59,7 +58,6 @@ class App extends React.Component {
           </Login>
           </>
         );
-        break;
       }
       case "overview": {
         return (
@@ -72,7 +70,6 @@ class App extends React.Component {
             </Overview>
           </>
         );
-        break;
       }
       default: {
         return (
@@ -82,7 +79,6 @@ class App extends React.Component {
             </StartPage>
           </>
         );
-        break;
       }
     }
   }
