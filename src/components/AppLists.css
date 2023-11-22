@@ -22,6 +22,7 @@ ul.tags {
   width: calc(var(--aside-width) - 1rem);
   height: 3rem;
   max-height: calc((100vh - 3rem - var(--header-height)) / 2);
+  max-height: calc((100svh - 3rem - var(--header-height)) / 2);
   margin-bottom: 1rem;
 
   box-shadow: inset 0px 0px 0px .1em var(--light-shadow);
@@ -32,6 +33,7 @@ ul.tasks {
   top: 0;
   width: calc(100vw - 1rem - 2 * var(--aside-width));
   height: calc(100vh - 2rem - var(--header-height));
+  height: calc(100svh - 2rem - var(--header-height));
   margin: 1rem .5rem;
 }
 
@@ -112,6 +114,7 @@ ul.tags li {
     padding: 1rem var(--aside-width) var(--aside-width);
     width: calc(100vw - 2 * var(--aside-width));
     height: calc(100vh - 1rem - var(--header-height) - var(--aside-width));
+    height: calc(100svh - 1rem - var(--header-height) - var(--aside-width));
 
     background-color: var(--background-color);
   }
