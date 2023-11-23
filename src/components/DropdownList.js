@@ -2,7 +2,7 @@ import React from 'react';
 
 import './AppLists.css';
 
-class FolderList extends React.Component {
+class DropdownList extends React.Component {
   constructor(props) {
     super(props);
     this.state = { enabled: "true" };
@@ -10,12 +10,14 @@ class FolderList extends React.Component {
   }
 
   render() {
-    const { color, children } = this.props;
+    const { title, color, children } = this.props;
     return (
-      <ul enabled={this.state.enabled} className={"folders " + color}>
-        <h2 onClick={this.toggleElement}>Folders</h2>
-        {children}
-      </ul>
+      <>
+        <h2 enabled={this.state.enabled} onClick={this.toggleElement} className={title}>{title}</h2>
+        <ul enabled={this.state.enabled} className={title + " " + color}>
+          {children}
+        </ul>
+      </>
     );
   }
 
@@ -28,4 +30,4 @@ class FolderList extends React.Component {
   }
 }
 
-export default FolderList;
+export default DropdownList;
