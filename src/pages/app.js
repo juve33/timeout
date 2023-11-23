@@ -1,8 +1,7 @@
 import React from 'react';
 
-import FolderList from '../components/FolderList';
+import DropdownList from '../components/DropdownList';
 import Folder from '../components/Folder';
-import TagList from '../components/TagList';
 import Tag from '../components/Tag';
 import TaskList from '../components/TaskList';
 
@@ -22,7 +21,7 @@ const tags = [
   {id: 1, title: "Freunde"},
   {id: 2, title: "Sport"},
   {id: 3, title: "Studium"},
-  {id: 4, title: "Sonstiges"},
+  {id: 4, title: "Sonstiges"}
 ];
 
 class App extends React.Component {
@@ -34,13 +33,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <FolderList>
+        <DropdownList title="folders">
           {folders.map((folder) => <Folder key={folder.id} content={folder.title} color={folder.color} />)}
-        </FolderList>
-        <TagList>
+        </DropdownList>
+        <DropdownList title="tags">
           {tags.map((tag) => <Tag key={tag.id} content={tag.title} color={tag.color} />)}
-        </TagList>
-        <TaskList title="Test">
+        </DropdownList>
+        <TaskList>
         </TaskList>
         <div className="add">+</div>
       </div>

@@ -13,12 +13,15 @@ ul.tags li {
     background-color: var(--accent-color);
 
 		transition: all .25s;
+    cursor: pointer;
 }
 
-button,
-input[type="submit"],
 ul.tags li {
-	cursor: pointer;
+  margin: 0 .25em .5em;
+}
+
+ul.tags li:last-of-type {
+  margin-bottom: .6em;
 }
 
 ul.tags li::before {

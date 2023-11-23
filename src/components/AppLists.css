@@ -20,12 +20,16 @@ ul.tags {
 
   text-align: left;
   width: calc(var(--aside-width) - 1rem);
-  height: 3rem;
-  max-height: calc((100vh - 3rem - var(--header-height)) / 2);
-  max-height: calc((100svh - 3rem - var(--header-height)) / 2);
+  height: 0;
+  max-height: calc((100vh - 9.6rem - var(--header-height)) / 2);
+  max-height: calc((100svh - 9.6rem - var(--header-height)) / 2);
   margin-bottom: 1rem;
 
-  box-shadow: inset 0px 0px 0px .1em var(--light-shadow);
+  box-shadow: inset .1em 0px 0px 0px var(--light-shadow), inset -.1em 0px 0px 0px var(--light-shadow), 0px .1em 0px 0px var(--light-shadow);
+}
+
+ul.tags {
+  text-align: center;
 }
 
 ul.tasks {
@@ -43,24 +47,40 @@ ul.tags[enabled="true"] {
   overflow-y: scroll;
 }
 
-ul.folders h2,
-ul.tags h2 {
+ul.tags[enabled="true"] {
+  padding-top: .5em;
+}
+
+h2.folders,
+h2.tags {
+  --width: calc(var(--aside-width) - 1rem);
   display: block;
-  position: relative;
   overflow: visible;
 
+  position: relative;
+  right: calc(var(--aside-width) - .5rem);
+  width: calc(.9 * var(--width));
+
 	font-size: 1rem;
-  width: 90%;
-  padding: 1em 5%;
+  text-align: left;
+  padding: 1em calc(.05 * var(--width));
 	cursor: pointer;
+  user-select: none;
+
+  box-shadow: inset 0px 0px 0px .1em var(--light-shadow);
+}
+
+h2.folders::first-letter,
+h2.tags::first-letter {
+  text-transform: uppercase;
 }
 
 ul.tasks h2 {
   display: none;
 }
 
-ul.folders h2::after,
-ul.tags h2::after {
+h2.folders::after,
+h2.tags::after {
   content: '';
 
   position: absolute;
@@ -80,19 +100,15 @@ ul.tags h2::after {
 }
 
 @media screen and (prefers-color-scheme: dark) {
-  ul.folders h2::after,
-  ul.tags h2::after {
+  h2.folders::after,
+  h2.tags::after {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='3' viewBox='-3.25 -3.25 10.5 10.5' %3E%3Cpath%20d%3D%22M%200%2C1%20l%202%2C2%20l%202%2C-2%22%20stroke%3D%22%23fff%22%20stroke-width%3D%22.2%22%20fill%3D%22none%22%2F%3E%3C/svg%3E");
   }
 }
 
-ul.folders[enabled="true"] h2::after,
-ul.tags[enabled="true"] h2::after {
+h2.folders[enabled="true"]::after,
+h2.tags[enabled="true"]::after {
   transform: rotate(180deg);
-}
-
-ul.tags li {
-  margin: 0 .25em .5em;
 }
 
 @media screen and (max-width: 1080px) {
@@ -106,6 +122,13 @@ ul.tags li {
   ul.tags {
     right: 0;
     width: 100%;
+  }
+
+  h2.folders,
+  h2.tags {
+    right: 0;
+    width: calc(100% - 2em);
+    padding: 1em;
   }
 
   ul.tasks {
