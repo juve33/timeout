@@ -1,6 +1,11 @@
 function Nav(props) {
   return (
-    <nav>
+    <nav id="nav" enabled="false">
+      <ul>
+        <li>Konto</li>
+        <li>Einstellungen</li>
+        <li>Ausloggen</li>
+      </ul>
     </nav>
   );
 }
