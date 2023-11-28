@@ -32,7 +32,7 @@ html {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
 
-	--header-height: max(6.5vmin, calc(12px + 1rem));
+	--header-height: max(6.5vmin, calc(24px + 1rem));
 	--footer-height: 2rem;
 	--aside-width: 15vw;
 }
@@ -171,6 +171,11 @@ footer {
 	}
 
 	.wrapper {
+		width: calc(100vw - 2 * var(--aside-width));
+	  padding: 1rem var(--aside-width) 0;
+	}
+
+	.wrapper:has(ul.folders) {
 		width: calc(100vw - 1rem - var(--aside-width));
 	  padding: 1rem 1rem 0 var(--aside-width);
 	}

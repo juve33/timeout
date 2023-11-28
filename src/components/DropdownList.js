@@ -5,7 +5,7 @@ import './AppLists.css';
 class DropdownList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { enabled: "true" };
+    this.state = { enabled: true };
     this.toggleElement = this.toggleElement.bind(this);
   }
 
@@ -13,8 +13,8 @@ class DropdownList extends React.Component {
     const { title, color, children } = this.props;
     return (
       <>
-        <h2 enabled={this.state.enabled} onClick={this.toggleElement} className={title}>{title}</h2>
-        <ul enabled={this.state.enabled} className={title + " " + color}>
+        <h2 enabled={this.state.enabled.toString()} onClick={this.toggleElement} className={title}>{title}</h2>
+        <ul enabled={this.state.enabled.toString()} className={title + " " + color}>
           {children}
         </ul>
       </>
@@ -22,11 +22,7 @@ class DropdownList extends React.Component {
   }
 
   toggleElement() {
-    if (this.state.enabled === "false") {
-      this.setState({ enabled: "true"});
-    } else {
-      this.setState({ enabled: "false"});
-    }
+    this.setState({ enabled: !this.state.enabled});
   }
 }
 

@@ -3,7 +3,7 @@ import React from 'react';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { enabled: "false" };
+    this.state = { enabled: true };
     this.toggleNav = this.toggleNav.bind(this);
   }
 
@@ -21,13 +21,8 @@ class Header extends React.Component {
 
   toggleNav() {
     const nav = document.getElementById("nav");
-    if (this.state.enabled === "false") {
-      nav.setAttribute("enabled", "true");
-      this.setState({ enabled: "true"});
-    } else {
-      nav.setAttribute("enabled", "false");
-      this.setState({ enabled: "false"});
-    }
+    this.setState({ enabled: !this.state.enabled});
+    nav.setAttribute("enabled", this.state.enabled.toString());
   }
 }
 
