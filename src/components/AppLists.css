@@ -21,8 +21,8 @@ ul.tags {
   text-align: left;
   width: calc(var(--aside-width) - 1rem);
   height: 0;
-  max-height: calc((100vh - 9.6rem - var(--header-height)) / 2);
-  max-height: calc((100svh - 9.6rem - var(--header-height)) / 2);
+  max-height: calc((100vh - 9.225rem - var(--header-height)) / 2);
+  max-height: calc((100svh - 9.225rem - var(--header-height)) / 2);
   margin-bottom: 1rem;
 
   box-shadow: inset .1em 0px 0px 0px var(--light-shadow), inset -.1em 0px 0px 0px var(--light-shadow), 0px .1em 0px 0px var(--light-shadow);
@@ -30,6 +30,8 @@ ul.tags {
 
 ul.tags {
   text-align: center;
+  max-height: calc((100vh - 9.725rem - var(--header-height)) / 2);
+  max-height: calc((100svh - 9.725rem - var(--header-height)) / 2);
 }
 
 ul.tasks {
@@ -39,6 +41,9 @@ ul.tasks {
   height: calc(100vh - 2rem - var(--header-height));
   height: calc(100svh - 2rem - var(--header-height));
   margin: 1rem .5rem;
+
+  user-select: unset;
+  overflow-y: scroll;
 }
 
 ul.folders[enabled="true"],

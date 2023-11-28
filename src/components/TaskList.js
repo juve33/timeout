@@ -8,10 +8,9 @@ class TaskList extends React.Component {
   }
 
   render() {
-    const { title, color, children } = this.props;
+    const { color, children } = this.props;
     return (
       <ul className={"tasks " + color}>
-        <h2>{ title }</h2>
         {children}
       </ul>
     );

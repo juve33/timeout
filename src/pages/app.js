@@ -5,23 +5,34 @@ import Folder from '../components/Folder';
 import Tag from '../components/Tag';
 import TaskList from '../components/TaskList';
 
+import jsonData from '../dummydata.json';
+import Task from '../components/Task';
+
 import './app.css';
 
+const data_items = jsonData.items;
+
 const folders = [
-  {id: 0, title: 'Überfällig', color: 'red'},
-  {id: 1, title: 'Heute', color: 'orange'},
-  {id: 2, title: 'Morgen', color: 'yellow'},
-  {id: 3, title: 'Bald', color: 'blue'},
-  {id: 4, title: 'Erledigt', color: 'green'},
-  {id: 5, title: 'noch ein Ordner', color: 'purple'}
+  {id: 0, title: 'Critic', color: 'red'},
+  {id: 1, title: 'Today', color: 'green'},
+  {id: 2, title: 'Incomplete', color: 'yellow'},
+  {id: 3, title: 'Planned', color: 'purple'}
 ];
 
 const tags = [
-  {id: 0, title: "Haushalt"},
-  {id: 1, title: "Freunde"},
-  {id: 2, title: "Sport"},
-  {id: 3, title: "Studium"},
-  {id: 4, title: "Sonstiges"}
+  {id: 0, title: "work"},
+  {id: 1, title: "urgent"},
+  {id: 2, title: "meeting"},
+  {id: 3, title: "finance"},
+  {id: 4, title: "development"},
+  {id: 5, title: "presentation"},
+  {id: 6, title: "team"},
+  {id: 7, title: "update"},
+  {id: 8, title: "training"},
+  {id: 9, title: "code"},
+  {id: 10, title: "demo"},
+  {id: 11, title: "assignment"},
+  {id: 12, title: "testing"},
 ];
 
 class App extends React.Component {
@@ -40,6 +51,9 @@ class App extends React.Component {
           {tags.map((tag) => <Tag key={tag.id} content={tag.title} color={tag.color} />)}
         </DropdownList>
         <TaskList>
+          {data_items.map((content) => (
+            <Task items={content} type="" />
+          ))}
         </TaskList>
         <div className="add">+</div>
       </div>

@@ -1,6 +1,7 @@
 button,
 input[type="submit"],
-ul.tags li {
+ul.tags li,
+.tag {
     --size : 1rem;
     display: inline-block;
     font-size: var(--size);
@@ -12,8 +13,14 @@ ul.tags li {
     color: var(--background-color);
     background-color: var(--accent-color);
 
-		transition: all .25s;
+		transition: color .25s, background-color .25s, box-shadow .25s;
     cursor: pointer;
+    user-select: none;
+}
+
+.tag {
+  cursor: default;
+  --accent-color: var(--default-accent-color);
 }
 
 ul.tags li {
@@ -24,14 +31,15 @@ ul.tags li:last-of-type {
   margin-bottom: .6em;
 }
 
-ul.tags li::before {
+ul.tags li::before,
+.tag::before {
 	content: '#';
 }
 
 button:hover,
 input[type="submit"]:hover,
-ul.tags li:hover,
-ul.tags li[enabled="true"] {
+ul.tags li[enabled="true"],
+.tag:hover {
 	color: var(--accent-color);
 	background-color: var(--background-color);
 	box-shadow: inset 0px 0px 0px .1em var(--accent-color);
