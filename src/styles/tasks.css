@@ -1,0 +1,38 @@
+.task {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    height: 10vh;
+    margin-bottom: 1vh;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border: none;
+
+}
+
+.Critic {
+    box-shadow: inset 20vw 0 rgba(255, 0, 0, 0.4);
+
+}
+
+.Planned {
+    box-shadow: inset 20vw 0 rgba(172, 146, 235, 1);
+
+}
+
+.Scheduled_for_Today {
+
+    box-shadow: inset 20vw 0 rgba(144, 238, 144, 1);
+
+}
+
+.Incomplete {
+    box-shadow: inset 20vw 0 rgba(255, 206, 84, 1);
+
+}
+
+.task_done {
+    background-color: rgb(255, 255, 255);
+    transition: all 0.5s;
+}

@@ -1,0 +1,16 @@
+.main_logo {
+    font-family: 'Italianno', Arial, Helvetica, sans-serif;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 400;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    height: 6vh;
+    width: 100%;
+    top: 0;
+    background-color: white;
+    color: #000;
+    z-index: 100;
+}

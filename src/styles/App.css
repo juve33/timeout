@@ -1,0 +1,9 @@
+section {
+  background-color: lightgrey;
+  min-height: 95vh;
+  padding-top: 6vh;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  --defaultbgc: white;
+  --donebgc: rgba(144, 238, 144, 1);
+}

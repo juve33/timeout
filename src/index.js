@@ -1,14 +1,14 @@
-import Layout from './layouts';
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './app';
+import './styles/index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('body'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Layout>
-      <App />
-    </Layout>
+    <App />
   </React.StrictMode>
 );
+
+reportWebVitals();
