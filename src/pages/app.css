@@ -18,10 +18,11 @@
 	border-radius: calc(var(--size) / 2);
 	box-shadow: 0 0 1rem var(--shadow);
 
-	transition: all .25s;
+	transition: all var(--transition-duration);
 	cursor: pointer;
 	user-select: none;
 	overflow: hidden;
+	z-index: 9998;
 }
 
 .add:hover {

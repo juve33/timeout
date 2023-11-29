@@ -50,7 +50,7 @@ class App extends React.Component {
         <DropdownList title="tags">
           {tags.map((tag) => <Tag key={tag.id} content={tag.title} color={tag.color} />)}
         </DropdownList>
-        <TaskList>
+        <TaskList title="test">
           {data_items.map((content) => (
             <Task items={content} type="" />
           ))}

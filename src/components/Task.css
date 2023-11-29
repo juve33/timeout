@@ -16,7 +16,7 @@
 
   background-color: var(--accent-color);
 
-  transition: all .25s;
+  transition: all var(--transition-duration);
 }
 
 .done::before {
@@ -29,7 +29,7 @@
     padding: .5rem 1rem;
     text-align: left;
 
-    transition: all 0.25s;
+    transition: all 0var(--transition-duration);
 }
 
 .done .data {
@@ -40,7 +40,7 @@
     font-size: 2rem;
     overflow: visible;
 
-    transition: all .25s;
+    transition: all var(--transition-duration);
 }
 
 .done .title {

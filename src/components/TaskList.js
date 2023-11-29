@@ -5,15 +5,24 @@ import './AppLists.css';
 class TaskList extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { enabled: false };
+    this.disableElement = this.disableElement.bind(this);
   }
 
   render() {
-    const { color, children } = this.props;
+    const { title, color, children } = this.props;
     return (
-      <ul className={"tasks " + color}>
-        {children}
-      </ul>
+      <>
+        <h2 enabled={this.state.enabled.toString()} onClick={this.disableElement} className={"tasks"}>{title}</h2>
+        <ul enabled={this.state.enabled.toString()} className={"tasks " + color}>
+          {children}
+        </ul>
+      </>
     );
+  }
+
+  disableElement() {
+    this.setState({ enabled: false});
   }
 }
 

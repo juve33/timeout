@@ -75,6 +75,10 @@ h2.tags {
   box-shadow: inset 0px 0px 0px .1em var(--light-shadow);
 }
 
+h2.tasks {
+  display: none;
+}
+
 h2.folders::first-letter,
 h2.tags::first-letter {
   text-transform: uppercase;
@@ -97,7 +101,7 @@ h2.tags::after {
 
   text-align: center;
 
-  transition: transform .25s;
+  transition: transform var(--transition-duration);
 
   background-repeat: no-repeat;
 	background-size: 100% 100%;
@@ -123,10 +127,33 @@ h2.tags[enabled="true"]::after {
 }
 
 @media screen and ((max-width: 512px) or (orientation: portrait)) {
+  .wrapper {
+    --task-title-size: 2rem;
+  }
+
   ul.folders,
   ul.tags {
     right: 0;
     width: 100%;
+  }
+
+  ul.tasks {
+    left: 100%;
+    top: calc(3rem + var(--task-title-size));
+    margin: 0;
+    padding: 0 var(--aside-width);
+    width: calc(100vw - 2 * var(--aside-width));
+    height: calc(100vh - 3rem - var(--header-height) - var(--task-title-size));
+    height: calc(100svh - 3rem - var(--header-height) - var(--task-title-size));
+
+    transition: left var(--transition-duration);
+    z-index: 9997;
+
+    background-color: var(--background-color);
+  }
+
+  ul.tasks[enabled="true"] {
+    left: 0;
   }
 
   h2.folders,
@@ -136,32 +163,36 @@ h2.tags[enabled="true"]::after {
     padding: 1em;
   }
 
-  ul.tasks {
-    left: 100%;
-    margin: 0;
-    padding: 1rem var(--aside-width) var(--aside-width);
-    width: calc(100vw - 2 * var(--aside-width));
-    height: calc(100vh - 1rem - var(--header-height) - var(--aside-width));
-    height: calc(100svh - 1rem - var(--header-height) - var(--aside-width));
-
-    background-color: var(--background-color);
-  }
-
-  ul.tasks h2 {
-    font-size: 2.5rem;
-    font-weight: 400;
-    text-align: left;
-
+  h2.tasks {
     display: block;
-    position: relative;
-    width: calc(100% - 1em);
-    padding-left: calc(1em + 1ch);
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: calc(100% - 2rem - 2 * var(--aside-width));
+    padding: 1rem;
+    margin: 1rem 0 0;
+
+    font-size: var(--task-title-size);
+    text-align: center;
+
+    color: var(--text-color);
+    background-color: var(--background-color);
+    box-shadow: unset;
+    box-shadow: inset 0px 0px 0px .1rem var(--light-shadow);
+    border-radius: unset;
+
+    transition: left var(--transition-duration);
+    z-index: 9998;
   }
 
-  ul.tasks h2::before {
+  h2.tasks::before {
     content: '←';
 
     position: absolute;
-    left: 0;
+    left: 1rem;
+  }
+
+  h2.tasks[enabled="true"] {
+    left: var(--aside-width);
   }
 }
