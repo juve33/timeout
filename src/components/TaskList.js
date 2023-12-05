@@ -1,20 +1,21 @@
-import React from 'react';
+import { useContext } from 'react';
+import { GetFilterContext, SetFilterContext } from '../pages/app';
 
 import './AppLists.css';
 
-class TaskList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+function TaskList(props) {
 
-  render() {
-    const { color, children } = this.props;
-    return (
-      <ul className={"tasks " + color}>
-        {children}
+  const getFilters = useContext(GetFilterContext);
+  const setFilters = useContext(SetFilterContext);
+
+  return (
+    <>
+      <h2 enabled={(getFilters.length !== 0).toString()} onClick={() => setFilters([])} className={"tasks"}>{props.title}</h2>
+      <ul enabled={(getFilters.length !== 0).toString()} className={"tasks " + props.color}>
+        {props.children}
       </ul>
-    );
-  }
+    </>
+  );
 }
 
 export default TaskList;

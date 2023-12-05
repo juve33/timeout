@@ -11,7 +11,7 @@
     appearance: none;
     outline: none;
     cursor: pointer;
-    transition: all 0.25s;
+    transition: all var(--transition-duration);
 }
 
 .checkbox-circle:hover {

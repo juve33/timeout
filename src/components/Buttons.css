@@ -13,7 +13,7 @@ ul.tags li,
     color: var(--background-color);
     background-color: var(--accent-color);
 
-		transition: color .25s, background-color .25s, box-shadow .25s;
+		transition: color var(--transition-duration), background-color var(--transition-duration), box-shadow var(--transition-duration);
     cursor: pointer;
     user-select: none;
 }

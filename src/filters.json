@@ -1,0 +1,24 @@
+{
+  "folders" : [
+    {"id": 0, "title": "Critic", "color": "red"},
+    {"id": 1, "title": "Today", "color": "green"},
+    {"id": 2, "title": "Incomplete", "color": "yellow"},
+    {"id": 3, "title": "Planned", "color": "purple"}
+  ],
+
+  "tags": [
+    {"id": 0, "title": "work"},
+    {"id": 1, "title": "urgent"},
+    {"id": 2, "title": "meeting"},
+    {"id": 3, "title": "finance"},
+    {"id": 4, "title": "development"},
+    {"id": 5, "title": "presentation"},
+    {"id": 6, "title": "team"},
+    {"id": 7, "title": "update"},
+    {"id": 8, "title": "training"},
+    {"id": 9, "title": "code"},
+    {"id": 10, "title": "demo"},
+    {"id": 11, "title": "assignment"},
+    {"id": 12, "title": "testing"}
+  ]
+}

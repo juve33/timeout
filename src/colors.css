@@ -7,6 +7,8 @@ html {
   --translucent-accent-color: rgba(79, 193, 232, 0.5);
 	--shadow: rgba(0,0,0,.25);
   --light-shadow: rgba(187,187,187,1);
+
+  --transition-duration: .25s;
 }
 
 /* dark mode */
