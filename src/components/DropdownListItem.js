@@ -1,20 +1,32 @@
-import Toggleable from './Toggleable';
+import { useContext } from 'react';
+import { GetFilterContext, SetFilterContext } from '../pages/app';
 
 import './Folder.css';
 import './Buttons.css';
 
-class DropdownListItem extends Toggleable {
-  constructor(props) {
-    super(props);
-    this.state = { enabled: false };
-    this.toggleElement = this.toggleElement.bind(this);
+function DropdownListItem(props) {
+
+  const getFilters = useContext(GetFilterContext);
+  const setFilters = useContext(SetFilterContext);
+
+  const enable = () => {
+    setFilters([props.content]);
   }
 
-  render() {
-    const { color, content } = this.props;
+  const disable = () => {
+    setFilters([]);
+  }
+
+  if (getFilters[0] === props.content) {
     return (
-      <li enabled={this.state.enabled.toString()} onClick={this.toggleElement} className={color}>
-        {content}
+      <li enabled="true" onClick={disable} className={props.color}>
+        {props.content}
+      </li>
+    );
+  } else {
+    return (
+      <li enabled="false" onClick={enable} className={props.color}>
+        {props.content}
       </li>
     );
   }

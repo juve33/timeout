@@ -1,29 +1,23 @@
-import React from 'react';
+import { React, useContext } from 'react';
+import { GetPageContext, SetPageContext } from '../layouts';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { enabled: true };
-    this.toggleNav = this.toggleNav.bind(this);
+function Header(props) {
+
+  const getPage = useContext(GetPageContext);
+  const setPage = useContext(SetPageContext);
+
+  const toggleNav = () => {
+    setPage({menuOpen: !(getPage.menuOpen)});
   }
 
-  render() {
-    const { color } = this.props;
-    return (
-      <header className={color}>
-        <div onClick={this.toggleNav} className="menu">
-          &#x2261;
-        </div>
-        TimeOut
-      </header>
-    );
-  }
-
-  toggleNav() {
-    const nav = document.getElementById("nav");
-    this.setState({ enabled: !this.state.enabled});
-    nav.setAttribute("enabled", this.state.enabled.toString());
-  }
+  return (
+    <header className={props.color}>
+      <div onClick={toggleNav} className="menu">
+        &#x2261;
+      </div>
+      TimeOut
+    </header>
+  );
 }
 
 export default Header;

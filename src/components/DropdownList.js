@@ -1,25 +1,19 @@
-import Toggleable from './Toggleable';
+import { useState } from 'react';
 
 import './AppLists.css';
 
-class DropdownList extends Toggleable {
-  constructor(props) {
-    super(props);
-    this.state = { enabled: true };
-    this.toggleElement = this.toggleElement.bind(this);
-  }
+function DropdownList(props) {
 
-  render() {
-    const { title, color, children } = this.props;
-    return (
-      <>
-        <h2 enabled={this.state.enabled.toString()} onClick={this.toggleElement} className={title}>{title}</h2>
-        <ul enabled={this.state.enabled.toString()} className={title + " " + color}>
-          {children}
-        </ul>
-      </>
-    );
-  }
+  const [enabled, setEnabled] = useState(true);
+
+  return (
+    <>
+      <h2 enabled={enabled.toString()} onClick={() => setEnabled(!enabled)} className={props.title}>{props.title}</h2>
+      <ul enabled={enabled.toString()} className={props.title + " " + props.color}>
+        {props.children}
+      </ul>
+    </>
+  );
 }
 
 export default DropdownList;

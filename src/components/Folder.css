@@ -34,9 +34,4 @@ ul.folders li:nth-last-of-type(2) {
   	padding: 2em var(--padding-sides);
     box-shadow: inset .25em 0 var(--accent-color), inset 0px 0px 0px .1em var(--light-shadow);
   }
-
-  ul.folders li[enabled="true"] {
-    color: var(--text-color);
-    box-shadow: inset .25em 0 var(--accent-color), inset 0px 0px 0px .1em var(--light-shadow);
-  }
 }

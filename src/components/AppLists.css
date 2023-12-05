@@ -77,10 +77,12 @@ h2.tags {
 
 h2.tasks {
   display: none;
+  user-select: none;
 }
 
 h2.folders::first-letter,
-h2.tags::first-letter {
+h2.tags::first-letter,
+h2.tasks::first-letter {
   text-transform: uppercase;
 }
 
