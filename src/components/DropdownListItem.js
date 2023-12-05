@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, memo } from 'react';
 import { GetFilterContext, SetFilterContext } from '../pages/app';
 
 import './Folder.css';
@@ -32,4 +32,4 @@ function DropdownListItem(props) {
   }
 }
 
-export default DropdownListItem;
+export default memo(DropdownListItem);
