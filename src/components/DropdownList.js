@@ -1,8 +1,8 @@
-import React from 'react';
+import Toggleable from './Toggleable';
 
 import './AppLists.css';
 
-class DropdownList extends React.Component {
+class DropdownList extends Toggleable {
   constructor(props) {
     super(props);
     this.state = { enabled: true };
@@ -19,10 +19,6 @@ class DropdownList extends React.Component {
         </ul>
       </>
     );
-  }
-
-  toggleElement() {
-    this.setState({ enabled: !this.state.enabled});
   }
 }
 

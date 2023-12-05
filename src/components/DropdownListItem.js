@@ -1,8 +1,9 @@
-import React from 'react';
+import Toggleable from './Toggleable';
 
 import './Folder.css';
+import './Buttons.css';
 
-class Folder extends React.Component {
+class DropdownListItem extends Toggleable {
   constructor(props) {
     super(props);
     this.state = { enabled: false };
@@ -17,10 +18,6 @@ class Folder extends React.Component {
       </li>
     );
   }
-
-  toggleElement() {
-    this.setState({ enabled: !this.state.enabled});
-  }
 }
 
-export default Folder;
+export default DropdownListItem;

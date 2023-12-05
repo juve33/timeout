@@ -1,8 +1,7 @@
 import React from 'react';
 
 import DropdownList from '../components/DropdownList';
-import Folder from '../components/Folder';
-import Tag from '../components/Tag';
+import DropdownListItem from '../components/DropdownListItem';
 import TaskList from '../components/TaskList';
 
 import jsonData from '../dummydata.json';
@@ -45,10 +44,10 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <DropdownList title="folders">
-          {folders.map((folder) => <Folder key={folder.id} content={folder.title} color={folder.color} />)}
+          {folders.map((folder) => <DropdownListItem key={folder.id} content={folder.title} color={folder.color} />)}
         </DropdownList>
         <DropdownList title="tags">
-          {tags.map((tag) => <Tag key={tag.id} content={tag.title} color={tag.color} />)}
+          {tags.map((tag) => <DropdownListItem key={tag.id} content={tag.title} color={tag.color} />)}
         </DropdownList>
         <TaskList title="test">
           {data_items.map((content) => (
