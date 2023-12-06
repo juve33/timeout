@@ -8,14 +8,16 @@ import './main.css';
 
 export const GetPageContext = createContext();
 export const SetPageContext = createContext();
+export const defaultPageState = {
+  loginState: 0,
+  menuOpen: false,
+  taskFormOpen: false,
+  taskFormTitle: ""
+};
 
 function Layout({children}) {
 
-  const [pageState, setPageState] = useState({
-    loginState: 0,
-    menuOpen: false,
-    taskFormOpen: false
-  });
+  const [pageState, setPageState] = useState(defaultPageState);
 
   return (
     <GetPageContext.Provider value={pageState}>

@@ -18,6 +18,11 @@ function TaskForm(props) {
   return (
     <>
       <form enabled={getPage.taskFormOpen.toString()} className="task-form">
+        <h2>{props.title}</h2>
+        <label>
+          Description:
+          <input type="text" placeholder="make homework" />
+        </label>
         <input onClick={cancelForm} type="button" value="Cancel" />
         <input onClick={submitForm} type="button" value="Submit" />
       </form>

@@ -156,14 +156,16 @@ h2.tags[enabled="true"]::after {
     height: calc(100vh - 3rem - var(--header-height) - var(--task-title-size));
     height: calc(100svh - 3rem - var(--header-height) - var(--task-title-size));
 
-    transition: left var(--transition-duration);
+    transition: left var(--transition-duration), opacity var(--transition-duration);
     z-index: 9997;
+    opacity: 0;
 
     background-color: var(--background-color);
   }
 
   ul.tasks[enabled="true"] {
     left: 0;
+    opacity: 1;
   }
 
   h2.folders,

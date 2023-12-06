@@ -25,7 +25,7 @@ function App() {
 
   const toggleTaskForm = () => {
     setPage(previousState => {
-      return { ...previousState, taskFormOpen: !(getPage.taskFormOpen) }
+      return { ...previousState, taskFormOpen: !(getPage.taskFormOpen), taskFormTitle: "Add Task" }
     });
   }
 
@@ -44,7 +44,7 @@ function App() {
               <Task items={content} type="" />
             ))}
           </TaskList>
-          <TaskForm />
+          <TaskForm title={getPage.taskFormTitle} />
         </SetFilterContext.Provider>
       </GetFilterContext.Provider>
       <div onClick={toggleTaskForm} className="add">+</div>

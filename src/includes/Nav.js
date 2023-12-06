@@ -1,5 +1,5 @@
 import { React, useContext } from 'react';
-import { GetPageContext, SetPageContext } from '../layouts';
+import { GetPageContext, SetPageContext, defaultPageState } from '../layouts';
 
 function Nav(props) {
 
@@ -10,7 +10,7 @@ function Nav(props) {
     setPage(previousState => { return { ...previousState, loginState: 1, menuOpen: false }});
   }
   const logOut = () => {
-    setPage(previousState => { return { ...previousState, loginState: 0, menuOpen: false }});
+    setPage(defaultPageState);
   }
 
   return (

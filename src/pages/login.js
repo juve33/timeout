@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import { SetPageContext } from '../layouts';
 
-import './login.css';
+import '../components/Forms.css';
+import '../components/Buttons.css';
 
 function Login({children}) {
 
