@@ -7,7 +7,9 @@ function Header(props) {
   const setPage = useContext(SetPageContext);
 
   const toggleNav = () => {
-    setPage({menuOpen: !(getPage.menuOpen)});
+    setPage(previousState => {
+      return { ...previousState, menuOpen: !(getPage.menuOpen) }
+    });
   }
 
   return (

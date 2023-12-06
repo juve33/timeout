@@ -20,7 +20,7 @@ function App() {
   const [activeFilters, setActiveFilters] = useState([]);
 
   return (
-    <div className="wrapper">
+    <>
       <GetFilterContext.Provider value={activeFilters}>
         <SetFilterContext.Provider value={setActiveFilters}>
           <DropdownList title="folders">
@@ -37,7 +37,7 @@ function App() {
         </SetFilterContext.Provider>
       </GetFilterContext.Provider>
       <div className="add">+</div>
-    </div>
+    </>
   );
 }
 

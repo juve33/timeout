@@ -12,6 +12,7 @@ export const SetPageContext = createContext();
 function Layout({children}) {
 
   const [pageState, setPageState] = useState({
+    loginState: 0,
     menuOpen: false
   });
 
@@ -21,7 +22,9 @@ function Layout({children}) {
         <Nav />
         <main>
           <Header />
-          {children}
+          <div className="wrapper">
+            {children}
+          </div>
         </main>
         <Footer />
       </SetPageContext.Provider>
