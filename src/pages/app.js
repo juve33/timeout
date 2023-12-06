@@ -1,4 +1,5 @@
-import { React, createContext, useState, memo } from 'react';
+import { React, createContext, useContext, useState, memo } from 'react';
+import { GetPageContext, SetPageContext } from '../layouts';
 
 import DropdownList from '../components/DropdownList';
 import DropdownListItem from '../components/DropdownListItem';
@@ -18,7 +19,15 @@ export const SetFilterContext = createContext();
 
 function App() {
 
+  const getPage = useContext(GetPageContext);
+  const setPage = useContext(SetPageContext);
   const [activeFilters, setActiveFilters] = useState([]);
+
+  const toggleTaskForm = () => {
+    setPage(previousState => {
+      return { ...previousState, taskFormOpen: !(getPage.taskFormOpen) }
+    });
+  }
 
   return (
     <>
@@ -38,7 +47,7 @@ function App() {
           <TaskForm />
         </SetFilterContext.Provider>
       </GetFilterContext.Provider>
-      <div className="add">+</div>
+      <div onClick={toggleTaskForm} className="add">+</div>
     </>
   );
 }

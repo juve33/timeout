@@ -13,7 +13,8 @@ function Layout({children}) {
 
   const [pageState, setPageState] = useState({
     loginState: 0,
-    menuOpen: false
+    menuOpen: false,
+    taskFormOpen: false
   });
 
   return (

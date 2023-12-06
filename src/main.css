@@ -187,8 +187,8 @@ footer {
 	}
 
 	.wrapper:has(ul.folders) {
-		width: calc(100vw - 1rem - var(--aside-width));
-	  padding: 1rem 1rem 0 var(--aside-width);
+		width: calc(100vw - 2rem - var(--aside-width));
+	  padding: 1rem 1rem 0 calc(1rem + var(--aside-width));
 	}
 
 	.menu {
@@ -227,7 +227,8 @@ footer {
 		--padding-sides: 1em;
 	}
 
-	.wrapper {
+	.wrapper,
+	.wrapper:has(ul.folders) {
 		--aside-width: 1vw;
 		width: calc(100vw - 2 * var(--aside-width));
 	  padding: 1rem var(--aside-width) 0;
