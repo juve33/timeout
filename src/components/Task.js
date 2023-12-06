@@ -32,13 +32,13 @@ function Task({ items, type }) {
         }, 500);
     };
 
-    if (items.type === "Critic") {
+    if (items.type === "overdue") {
         tasktype = 'task red';
     } else if (items.type === "Today") {
         tasktype = 'task green';
-    } else if (items.type === "Incomplete") {
+    } else if (items.type === "tomorrow") {
         tasktype = 'task yellow';
-    } else if (items.type === "Planned") {
+    } else if (items.type === "soon") {
         tasktype = 'task purple';
     }
 

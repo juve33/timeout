@@ -30,3 +30,8 @@
 	color: var(--accent-color);
 	background-color: var(--background-color);
 }
+
+.task-form[enabled="true"] ~ .add {
+	right: calc(0rem - var(--size));
+	opacity: 0;
+}

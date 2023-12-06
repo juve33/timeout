@@ -87,6 +87,7 @@ h2.tasks:hover {
   color: var(--accent-color);
 }
 
+ul.folders li::first-letter,
 h2.folders::first-letter,
 h2.tags::first-letter,
 h2.tasks::first-letter {
@@ -131,7 +132,7 @@ h2.tags[enabled="true"]::after {
 
 @media screen and (max-width: 1080px) {
   ul.tasks {
-    width: calc(100vw - 1.5rem - var(--aside-width));
+    width: calc(100vw - 1rem - var(--aside-width));
   }
 }
 

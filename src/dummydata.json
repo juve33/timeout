@@ -7,7 +7,7 @@
                 "work",
                 "urgent"
             ],
-            "type": "Critic",
+            "type": "overdue",
             "date": "2023-11-22"
         },
         {
@@ -26,7 +26,7 @@
             "tags": [
                 "finance"
             ],
-            "type": "Incomplete",
+            "type": "tomorrow",
             "date": "2023-11-23"
         },
         {
@@ -36,7 +36,7 @@
                 "work",
                 "urgent"
             ],
-            "type": "Planned",
+            "type": "soon",
             "date": "2023-11-22"
         },
         {
@@ -55,7 +55,7 @@
             "tags": [
                 "development"
             ],
-            "type": "Incomplete",
+            "type": "tomorrow",
             "date": "2023-11-23"
         },
         {
@@ -65,7 +65,7 @@
                 "work",
                 "development"
             ],
-            "type": "Planned",
+            "type": "soon",
             "date": "2023-11-24"
         },
         {
@@ -76,7 +76,7 @@
                 "presentation",
                 "assignment"
             ],
-            "type": "Critic",
+            "type": "overdue",
             "date": "2023-11-24"
         },
         {
@@ -96,7 +96,7 @@
                 "work",
                 "update"
             ],
-            "type": "Critic",
+            "type": "overdue",
             "date": "2023-11-25"
         },
         {
@@ -106,7 +106,7 @@
                 "work",
                 "training"
             ],
-            "type": "Planned",
+            "type": "soon",
             "date": "2023-11-25"
         },
         {
@@ -116,7 +116,7 @@
                 "work",
                 "code"
             ],
-            "type": "Incomplete",
+            "type": "tomorrow",
             "date": "2023-11-26"
         },
         {
@@ -136,7 +136,7 @@
                 "work",
                 "assignment"
             ],
-            "type": "Planned",
+            "type": "soon",
             "date": "2023-11-27"
         },
         {
@@ -146,7 +146,7 @@
                 "work",
                 "testing"
             ],
-            "type": "Critic",
+            "type": "overdue",
             "date": "2023-11-27"
         }
     ]

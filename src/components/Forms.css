@@ -5,11 +5,13 @@ form.task-form {
   top: 100%;
   height: var(--height);
   width: inherit;
+  padding-top: .1em;
 
   background-color: var(--background-color);
   box-shadow: inset 0px 0px 0px .1em var(--light-shadow);
 
   transition: all var(--transition-duration);
+  z-index: 9998;
 }
 
 form.task-form[enabled="true"] {
