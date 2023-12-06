@@ -18,15 +18,15 @@ function Login({children}) {
     <>
       <form className="login">
         <label>
-          Nutzername:
-          <input type="text" placeholder="beispiel@beispiel.de" />
+          Username:
+          <input type="email" placeholder="example@example.org" />
         </label>
         <label>
-          Passwort:
+          Password:
           <input type="password" />
         </label>
-        <input onClick={cancelLogin} type="button" value="Abbrechen" />
-        <input onClick={continueLogin} type="submit" value="Einloggen" />
+        <input onClick={cancelLogin} type="button" value="Cancel" />
+        <input onClick={continueLogin} type="submit" value="Log in" />
         {children}
       </form>
     </>

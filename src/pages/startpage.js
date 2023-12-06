@@ -12,8 +12,8 @@ function StartPage({children}) {
 
   return (
     <>
-      <h1>Startseite</h1>
-      <button onClick={continueLogin}>Einloggen</button>
+      <h1>Startpage</h1>
+      <button onClick={continueLogin}>Log in</button>
       {children}
     </>
   );

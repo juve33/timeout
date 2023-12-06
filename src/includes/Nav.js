@@ -16,7 +16,7 @@ function Nav(props) {
   return (
     <nav id="nav" enabled={getPage.menuOpen.toString()}>
       <ul>
-        {(getPage.loginState === 2) ? <li onClick={logOut}>Ausloggen</li> : <li onClick={logIn}>Einloggen</li>}
+        {(getPage.loginState === 2) ? <li onClick={logOut}>Log out</li> : <li onClick={logIn}>Log in</li>}
       </ul>
     </nav>
   );

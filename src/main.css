@@ -175,6 +175,7 @@ footer {
 	html {
 		--header-height: max(10vmin, calc(12px + 2rem));
 		--aside-width: 20vw;
+		font-size: max(1vw,14px);
 	}
 
 	header {
