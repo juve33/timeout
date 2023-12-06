@@ -53,7 +53,7 @@
             "id": 6,
             "title": "Financial Analysis",
             "tags": [
-                "finance"
+                "development"
             ],
             "type": "Incomplete",
             "date": "2023-11-23"
@@ -73,7 +73,8 @@
             "title": "Client Presentation",
             "tags": [
                 "work",
-                "presentation"
+                "presentation",
+                "assignment"
             ],
             "type": "Critic",
             "date": "2023-11-24"

@@ -9,6 +9,9 @@ function Login({children}) {
   const continueLogin = () => {
     setPage(previousState => { return { ...previousState, loginState: 2, menuOpen: false }});
   }
+  const cancelLogin = () => {
+    setPage(previousState => { return { ...previousState, loginState: 0, menuOpen: false }});
+  }
 
   return (
     <>
@@ -21,6 +24,7 @@ function Login({children}) {
           Passwort:
           <input type="password" />
         </label>
+        <input onClick={cancelLogin} type="button" value="Abbrechen" />
         <input onClick={continueLogin} type="submit" value="Einloggen" />
         {children}
       </form>

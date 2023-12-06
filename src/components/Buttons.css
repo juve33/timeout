@@ -1,5 +1,6 @@
 button,
 input[type="submit"],
+input[type="button"],
 ul.tags li,
 .tag {
     --size : 1rem;
@@ -42,8 +43,8 @@ ul.tags li::before,
 
 button:hover,
 input[type="submit"]:hover,
-ul.tags li[enabled="true"],
-.tag:hover {
+input[type="button"]:hover,
+ul.tags li[enabled="true"] {
 	color: var(--accent-color);
 	background-color: var(--background-color);
 	box-shadow: inset 0px 0px 0px .1em var(--accent-color);
