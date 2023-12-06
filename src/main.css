@@ -20,10 +20,11 @@ section, summary, time, mark, audio, video {
   color: inherit;
   text-decoration: inherit;
 	vertical-align: middle;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 html {
+	overflow-y: scroll;
 	font-size: max(1vw,12px);
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none; /* Edge */
@@ -31,21 +32,59 @@ html {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
 
-	--header-height: max(6.5vmin, calc(12px + 1rem));
+	--header-height: max(6.5vmin, calc(24px + 1rem));
 	--footer-height: 2rem;
+	--aside-width: 15vw;
 }
 
-html::-webkit-scrollbar {
-	 display: none; /* Chrome, Safari, Opera */
+html::-webkit-scrollbar { /* Chrome, Safari, Opera */
+	 display: none;
+}
+
+nav {
+	position: fixed;
+	top: var(--header-height);
+	left: calc(0px - var(--aside-width));
+	min-width: calc(var(--aside-width) - 1rem);
+	padding: calc(var(--header-height) / 6) .5rem;
+
+	background-color: var(--background-color);
+	opacity: 0;
+	box-shadow: inset 0px 0px 0px .1rem var(--light-shadow);
+
+	transition: left var(--transition-duration), opacity var(--transition-duration);
+	user-select: none;
+	z-index: 10001;
+}
+
+nav[enabled="true"] {
+	opacity: 1;
+	left: 0;
+}
+
+nav li {
+	--padding-sides: .5rem;
+	width: calc(100% - 2* var(--padding-sides));
+	padding: calc(var(--header-height) / 6) var(--padding-sides);
+	margin-bottom: calc(var(--header-height) / 6);
+	box-shadow: inset 0px 0px 0px .1rem var(--light-shadow);
+
+	font-size: calc(var(--header-height) / 3);
+}
+
+nav li:last-of-type {
+	margin-bottom: 0;
 }
 
 .wrapper {
-    width: 70vw;
-		min-height: calc(100vh - 1rem - var(--header-height));
-    padding: 1rem 15vw 0;
-		margin-top: var(--header-height);
-    text-align: center;
-    overflow-x: hidden;
+	position: relative;
+  width: calc(100vw - 2 * var(--aside-width));
+	height: calc(100vh - 1rem - var(--header-height));
+	height: calc(100svh - 1rem - var(--header-height));
+  padding: 1rem var(--aside-width) 0;
+	margin-top: var(--header-height);
+  text-align: center;
+  overflow: hidden;
 }
 
 body {
@@ -77,6 +116,7 @@ header {
 	justify-content: center;
 	align-items: center;
 	overflow: visible;
+	user-select: none;
 
 	font-size: var(--header-height);
 	line-height: var(--header-height);
@@ -122,6 +162,7 @@ footer {
 @media screen and (max-width: 1080px) {
 	html {
 		--header-height: max(10vmin, calc(12px + 2rem));
+		--aside-width: 20vw;
 	}
 
 	header {
@@ -130,8 +171,13 @@ footer {
 	}
 
 	.wrapper {
-		width: 90vw;
-		padding: 1rem 5vw 0;
+		width: calc(100vw - 2 * var(--aside-width));
+	  padding: 1rem var(--aside-width) 0;
+	}
+
+	.wrapper:has(ul.folders) {
+		width: calc(100vw - 1rem - var(--aside-width));
+	  padding: 1rem 1rem 0 var(--aside-width);
 	}
 
 	.menu {
@@ -149,10 +195,31 @@ footer {
 	header {
 		padding-left: calc(var(--header-height) / 2);
 	}
+}
+
+@media screen and ((max-width: 512px) or (orientation: portrait)) {
+	nav {
+		left: -100%;
+		min-width: unset;
+		width: calc(100% - 1rem);
+		height: calc(100vh - 1rem - var(--header-height));
+		height: calc(100svh - 1rem - var(--header-height));
+		padding: 1rem .5rem .5rem;
+
+		opacity: 1;
+		box-shadow: unset;
+
+		z-index: 9999;
+	}
+
+	nav li {
+		--padding-sides: 1em;
+	}
 
 	.wrapper {
-		width: 98vw;
-		padding: 1rem 1vw 0;
+		--aside-width: 1vw;
+		width: calc(100vw - 2 * var(--aside-width));
+	  padding: 1rem var(--aside-width) 0;
 	}
 
 	.menu {

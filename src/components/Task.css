@@ -1,0 +1,61 @@
+.task {
+    display: flex;
+    position: relative;
+    width: 100%;
+    min-height: 4rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    background-color: var(--background-color);
+}
+
+.task::before {
+  content: '';
+
+  width: 20%;
+  min-height: inherit;
+
+  background-color: var(--accent-color);
+
+  transition: all var(--transition-duration);
+}
+
+.done::before {
+  width: 0;
+}
+
+.data {
+    display: inline-block;
+    width: calc(60% - 2rem);
+    padding: .5rem 1rem;
+    text-align: left;
+
+    transition: all 0var(--transition-duration);
+}
+
+.done .data {
+    margin-left: 10%;
+}
+
+.title {
+    font-size: 2rem;
+    overflow: visible;
+
+    transition: all var(--transition-duration);
+}
+
+.done .title {
+    color: var(--accent-color);
+    text-decoration: line-through;
+}
+
+.date {
+    font-weight: 100;
+}
+
+.task .tags {
+    position: absolute;
+    right: 0;
+    width: 20%;
+
+    overflow: visible;
+}

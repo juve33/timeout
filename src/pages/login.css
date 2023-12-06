@@ -28,6 +28,7 @@ label:has(input:focus) {
 
 label:first-of-type {
   margin-top: 20vh;
+  margin-top: 20svh;
 }
 
 input {
@@ -45,7 +46,7 @@ input {
     background-color: var(--background-color);
   	box-shadow: inset 0px 0px 0px 2px var(--accent-color);
 
-		transition: all .25s;
+		transition: all var(--transition-duration);
 }
 
 input:focus {

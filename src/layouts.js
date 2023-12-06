@@ -1,20 +1,35 @@
+import { React, createContext, useState, memo } from 'react';
+
 import Nav from './includes/Nav';
 import Header from './includes/Header';
 import Footer from './includes/Footer';
 
 import './main.css';
 
+export const GetPageContext = createContext();
+export const SetPageContext = createContext();
+
 function Layout({children}) {
+
+  const [pageState, setPageState] = useState({
+    loginState: 0,
+    menuOpen: false
+  });
+
   return (
-    <>
-      <Nav />
-      <main>
-        <Header />
-        {children}
-      </main>
-      <Footer />
-    </>
+    <GetPageContext.Provider value={pageState}>
+      <SetPageContext.Provider value={setPageState}>
+        <Nav />
+        <main>
+          <Header />
+          <div className="wrapper">
+            {children}
+          </div>
+        </main>
+        <Footer />
+      </SetPageContext.Provider>
+    </GetPageContext.Provider>
   );
 }
 
-export default Layout;
+export default memo(Layout);

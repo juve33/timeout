@@ -1,0 +1,200 @@
+ul.folders,
+ul.tags,
+ul.tasks {
+  overflow: hidden;
+  scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* Edge */
+  user-select: none;
+}
+
+ul.folders::-webkit-scrollbar,
+ul.tags::-webkit-scrollbar,
+ul.tasks::-webkit-scrollbar { /* Chrome, Safari, Opera */
+	 display: none;
+}
+
+ul.folders,
+ul.tags {
+  position: relative;
+  right: calc(var(--aside-width) - .5rem);
+
+  text-align: left;
+  width: calc(var(--aside-width) - 1rem);
+  height: 0;
+  max-height: calc((100vh - 9.225rem - var(--header-height)) / 2);
+  max-height: calc((100svh - 9.225rem - var(--header-height)) / 2);
+  margin-bottom: 1rem;
+
+  box-shadow: inset .1em 0px 0px 0px var(--light-shadow), inset -.1em 0px 0px 0px var(--light-shadow), 0px .1em 0px 0px var(--light-shadow);
+}
+
+ul.tags {
+  text-align: center;
+  max-height: calc((100vh - 9.725rem - var(--header-height)) / 2);
+  max-height: calc((100svh - 9.725rem - var(--header-height)) / 2);
+}
+
+ul.tasks {
+  position: absolute;
+  top: 0;
+  width: calc(100vw - 1rem - 2 * var(--aside-width));
+  height: calc(100vh - 2rem - var(--header-height));
+  height: calc(100svh - 2rem - var(--header-height));
+  margin: 1rem .5rem;
+
+  user-select: unset;
+  overflow-y: scroll;
+}
+
+ul.folders[enabled="true"],
+ul.tags[enabled="true"] {
+  height: auto;
+  overflow-y: scroll;
+}
+
+ul.tags[enabled="true"] {
+  padding-top: .5em;
+}
+
+h2.folders,
+h2.tags {
+  --width: calc(var(--aside-width) - 1rem);
+  display: block;
+  overflow: visible;
+
+  position: relative;
+  right: calc(var(--aside-width) - .5rem);
+  width: calc(.9 * var(--width));
+
+	font-size: 1rem;
+  text-align: left;
+  padding: 1em calc(.05 * var(--width));
+	cursor: pointer;
+  user-select: none;
+
+  box-shadow: inset 0px 0px 0px .1em var(--light-shadow);
+}
+
+h2.tasks {
+  display: none;
+  user-select: none;
+}
+
+h2.folders::first-letter,
+h2.tags::first-letter,
+h2.tasks::first-letter {
+  text-transform: uppercase;
+}
+
+ul.tasks h2 {
+  display: none;
+}
+
+h2.folders::after,
+h2.tags::after {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1em;
+  aspect-ratio: 1/1;
+  padding: 1em;
+
+  text-align: center;
+
+  transition: transform var(--transition-duration);
+
+  background-repeat: no-repeat;
+	background-size: 100% 100%;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='3' viewBox='-3.25 -3.25 10.5 10.5' %3E%3Cpath%20d%3D%22M%200%2C1%20l%202%2C2%20l%202%2C-2%22%20stroke%3D%22%23000%22%20stroke-width%3D%22.2%22%20fill%3D%22none%22%2F%3E%3C/svg%3E");
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  h2.folders::after,
+  h2.tags::after {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='3' viewBox='-3.25 -3.25 10.5 10.5' %3E%3Cpath%20d%3D%22M%200%2C1%20l%202%2C2%20l%202%2C-2%22%20stroke%3D%22%23fff%22%20stroke-width%3D%22.2%22%20fill%3D%22none%22%2F%3E%3C/svg%3E");
+  }
+}
+
+h2.folders[enabled="true"]::after,
+h2.tags[enabled="true"]::after {
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 1080px) {
+  ul.tasks {
+    width: calc(100vw - 1.5rem - var(--aside-width));
+  }
+}
+
+@media screen and ((max-width: 512px) or (orientation: portrait)) {
+  .wrapper {
+    --task-title-size: 2rem;
+  }
+
+  ul.folders,
+  ul.tags {
+    right: 0;
+    width: 100%;
+  }
+
+  ul.tasks {
+    left: 100%;
+    top: calc(3rem + var(--task-title-size));
+    margin: 0;
+    padding: 0 var(--aside-width);
+    width: calc(100vw - 2 * var(--aside-width));
+    height: calc(100vh - 3rem - var(--header-height) - var(--task-title-size));
+    height: calc(100svh - 3rem - var(--header-height) - var(--task-title-size));
+
+    transition: left var(--transition-duration);
+    z-index: 9997;
+
+    background-color: var(--background-color);
+  }
+
+  ul.tasks[enabled="true"] {
+    left: 0;
+  }
+
+  h2.folders,
+  h2.tags {
+    right: 0;
+    width: calc(100% - 2em);
+    padding: 1em;
+  }
+
+  h2.tasks {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: calc(100% - 2rem - 2 * var(--aside-width));
+    padding: 1rem;
+    margin: 1rem 0 0;
+
+    font-size: var(--task-title-size);
+    text-align: center;
+
+    color: var(--text-color);
+    background-color: var(--background-color);
+    box-shadow: unset;
+    box-shadow: inset 0px 0px 0px .1rem var(--light-shadow);
+    border-radius: unset;
+
+    transition: left var(--transition-duration);
+    z-index: 9998;
+  }
+
+  h2.tasks::before {
+    content: '←';
+
+    position: absolute;
+    left: 1rem;
+  }
+
+  h2.tasks[enabled="true"] {
+    left: var(--aside-width);
+  }
+}

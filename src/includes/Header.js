@@ -1,7 +1,20 @@
+import { React, useContext } from 'react';
+import { GetPageContext, SetPageContext } from '../layouts';
+
 function Header(props) {
+
+  const getPage = useContext(GetPageContext);
+  const setPage = useContext(SetPageContext);
+
+  const toggleNav = () => {
+    setPage(previousState => {
+      return { ...previousState, menuOpen: !(getPage.menuOpen) }
+    });
+  }
+
   return (
-    <header>
-      <div className="menu">
+    <header className={props.color}>
+      <div onClick={toggleNav} className="menu">
         &#x2261;
       </div>
       TimeOut
