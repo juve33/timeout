@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { React, useState, useContext, memo } from 'react';
+import { GetFilterContext } from '../pages/app';
 import Checkbox from './Checkbox';
 import done from './done';
 import './Task.css';
@@ -6,6 +7,21 @@ import './Task.css';
 import './Buttons.css';
 
 function Task({ items, type }) {
+
+    const getFilters = useContext(GetFilterContext);
+
+    const hidden = () => {
+      if (getFilters.length > 0) {
+        if ((items.type === getFilters[0]) || (items.tags.includes(getFilters[0]))) {
+          return '';
+        } else {
+          return ' hidden';
+        }
+      } else {
+        return '';
+      }
+    }
+
     let tasktype;
     const [checked, setChecked] = useState(false);
 
@@ -18,7 +34,7 @@ function Task({ items, type }) {
 
     if (items.type === "Critic") {
         tasktype = 'task red';
-    } else if (items.type === "Scheduled for Today") {
+    } else if (items.type === "Today") {
         tasktype = 'task green';
     } else if (items.type === "Incomplete") {
         tasktype = 'task yellow';
@@ -27,7 +43,7 @@ function Task({ items, type }) {
     }
 
     return (
-        <li key={items.id} className={checked ? 'task done red' : tasktype}>
+        <li key={items.id} className={(checked ? 'task done red' : tasktype) + hidden()}>
           {!checked && <Checkbox value={checked} onChange={() => handleChange(items.id)} />}
           <div className={'data'}>
             <div className={'title'}>{items.title}</div>
@@ -44,4 +60,4 @@ function Task({ items, type }) {
     );
 }
 
-export default Task;
+export default memo(Task);

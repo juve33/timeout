@@ -19,6 +19,10 @@
   transition: all var(--transition-duration);
 }
 
+.hidden {
+  display: none;
+}
+
 .done::before {
   width: 0;
 }

@@ -31,6 +31,10 @@ ul.tags li:last-of-type {
   margin-bottom: .6em;
 }
 
+ul.tags li:hover {
+  color: var(--font-color);
+}
+
 ul.tags li::before,
 .tag::before {
 	content: '#';

@@ -15,6 +15,10 @@ ul.folders li {
   transition: all var(--transition-duration);
 }
 
+ul.folders li:hover {
+  box-shadow: inset .2em 0 var(--accent-color), inset 0px 0px 0px .1em var(--light-shadow);
+}
+
 ul.folders li[enabled="true"] {
   color: var(--accent-color);
   box-shadow: inset calc(var(--padding-sides) / 2) 0 var(--accent-color), inset 0px 0px 0px .1em var(--light-shadow);
@@ -32,6 +36,10 @@ ul.folders li:nth-last-of-type(2) {
     width: calc(50% - 4 * var(--padding-sides));
     margin: 1em 1em 0;
   	padding: 2em var(--padding-sides);
+    box-shadow: inset .25em 0 var(--accent-color), inset 0px 0px 0px .1em var(--light-shadow);
+  }
+
+  ul.folders li:hover {
     box-shadow: inset .25em 0 var(--accent-color), inset 0px 0px 0px .1em var(--light-shadow);
   }
 }

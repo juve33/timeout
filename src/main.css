@@ -70,6 +70,12 @@ nav li {
 	box-shadow: inset 0px 0px 0px .1rem var(--light-shadow);
 
 	font-size: calc(var(--header-height) / 3);
+
+	transition: color var(--transition-duration);
+}
+
+nav li:hover {
+	color: var(--accent-color);
 }
 
 nav li:last-of-type {
@@ -146,6 +152,11 @@ header {
 
 	overflow: hidden;
 	cursor: pointer;
+	transition: color var(--transition-duration);
+}
+
+.menu:hover {
+	color: var(--accent-color);
 }
 
 footer {

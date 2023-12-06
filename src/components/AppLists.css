@@ -71,6 +71,7 @@ h2.tags {
   padding: 1em calc(.05 * var(--width));
 	cursor: pointer;
   user-select: none;
+  transition: color var(--transition-duration);
 
   box-shadow: inset 0px 0px 0px .1em var(--light-shadow);
 }
@@ -78,6 +79,12 @@ h2.tags {
 h2.tasks {
   display: none;
   user-select: none;
+}
+
+h2.folders:hover,
+h2.tags:hover,
+h2.tasks:hover {
+  color: var(--accent-color);
 }
 
 h2.folders::first-letter,
@@ -183,7 +190,7 @@ h2.tags[enabled="true"]::after {
     box-shadow: inset 0px 0px 0px .1rem var(--light-shadow);
     border-radius: unset;
 
-    transition: left var(--transition-duration);
+    transition: left var(--transition-duration), color var(--transition-duration);
     z-index: 9998;
   }
 
