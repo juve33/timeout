@@ -1,0 +1,23 @@
+form.task-form {
+  --height: 10em;
+
+  position: absolute;
+  top: 100%;
+  height: var(--height);
+  width: inherit;
+
+  background-color: var(--background-color);
+  box-shadow: inset 0px 0px 0px .1em var(--light-shadow);
+
+  transition: all var(--transition-duration);
+}
+
+form.task-form[enabled="true"] {
+  top: calc(100% - var(--height));
+}
+
+@media screen and (max-width: 1080px) {
+}
+
+@media screen and ((max-width: 512px) or (orientation: portrait)) {
+}

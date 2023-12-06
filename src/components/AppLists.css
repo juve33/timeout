@@ -16,7 +16,7 @@ ul.tasks::-webkit-scrollbar { /* Chrome, Safari, Opera */
 ul.folders,
 ul.tags {
   position: relative;
-  right: calc(var(--aside-width) - .5rem);
+  right: var(--aside-width);
 
   text-align: left;
   width: calc(var(--aside-width) - 1rem);
@@ -40,7 +40,7 @@ ul.tasks {
   width: calc(100vw - 1rem - 2 * var(--aside-width));
   height: calc(100vh - 2rem - var(--header-height));
   height: calc(100svh - 2rem - var(--header-height));
-  margin: 1rem .5rem;
+  margin: 1rem 0;
 
   user-select: unset;
   overflow-y: scroll;
@@ -63,7 +63,7 @@ h2.tags {
   overflow: visible;
 
   position: relative;
-  right: calc(var(--aside-width) - .5rem);
+  right: var(--aside-width);
   width: calc(.9 * var(--width));
 
 	font-size: 1rem;

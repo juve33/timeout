@@ -6,6 +6,7 @@ import DropdownListItem from '../components/DropdownListItem';
 import jsonData from '../dummydata.json';
 import filters from '../filters.json';
 import TaskList from '../components/TaskList';
+import TaskForm from '../components/TaskForm';
 import Task from '../components/Task';
 
 import './app.css';
@@ -34,6 +35,7 @@ function App() {
               <Task items={content} type="" />
             ))}
           </TaskList>
+          <TaskForm />
         </SetFilterContext.Provider>
       </GetFilterContext.Provider>
       <div className="add">+</div>
