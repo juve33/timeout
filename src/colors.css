@@ -21,6 +21,12 @@ html {
   }
 }
 
+@media (prefers-reduced-motion) {
+  html {
+		--transition-duration: 0s;
+  }
+}
+
 .green {
     --accent-color: rgb(144, 238, 144);
     --translucent-accent-color: rgba(144, 238, 144, 0.5);

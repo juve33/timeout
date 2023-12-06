@@ -17,7 +17,7 @@
                 "work",
                 "meeting"
             ],
-            "type": "Scheduled for Today",
+            "type": "Today",
             "date": "2023-11-22"
         },
         {
@@ -46,7 +46,7 @@
                 "work",
                 "meeting"
             ],
-            "type": "Scheduled for Today",
+            "type": "Today",
             "date": "2023-11-22"
         },
         {
@@ -85,7 +85,7 @@
                 "work",
                 "team"
             ],
-            "type": "Scheduled for Today",
+            "type": "Today",
             "date": "2023-11-24"
         },
         {
@@ -125,7 +125,7 @@
                 "work",
                 "demo"
             ],
-            "type": "Scheduled for Today",
+            "type": "Today",
             "date": "2023-11-26"
         },
         {
