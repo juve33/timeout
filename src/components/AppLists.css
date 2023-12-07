@@ -56,8 +56,7 @@ ul.tags[enabled="true"] {
   padding-top: .5em;
 }
 
-h2.folders,
-h2.tags {
+h2.dropdown-list {
   --width: calc(var(--aside-width) - 1rem);
   display: block;
   overflow: visible;
@@ -81,15 +80,13 @@ h2.tasks {
   user-select: none;
 }
 
-h2.folders:hover,
-h2.tags:hover,
+h2.dropdown-list:hover,
 h2.tasks:hover {
   color: var(--accent-color);
 }
 
 :not(form)>ul.folders li::first-letter,
-h2.folders::first-letter,
-h2.tags::first-letter,
+h2.dropdown-list::first-letter,
 h2.tasks::first-letter {
   text-transform: uppercase;
 }
@@ -98,8 +95,7 @@ ul.tasks h2 {
   display: none;
 }
 
-h2.folders::after,
-h2.tags::after {
+h2.dropdown-list::after {
   content: '';
 
   position: absolute;
@@ -119,14 +115,12 @@ h2.tags::after {
 }
 
 @media screen and (prefers-color-scheme: dark) {
-  h2.folders::after,
-  h2.tags::after {
+  h2.dropdown-list::after {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='3' viewBox='-3.25 -3.25 10.5 10.5' %3E%3Cpath%20d%3D%22M%200%2C1%20l%202%2C2%20l%202%2C-2%22%20stroke%3D%22%23fff%22%20stroke-width%3D%22.2%22%20fill%3D%22none%22%2F%3E%3C/svg%3E");
   }
 }
 
-h2.folders[enabled="true"]::after,
-h2.tags[enabled="true"]::after {
+h2.dropdown-list[enabled="true"]::after {
   transform: rotate(180deg);
 }
 
@@ -168,8 +162,7 @@ h2.tags[enabled="true"]::after {
     opacity: 1;
   }
 
-  h2.folders,
-  h2.tags {
+  h2.dropdown-list {
     right: 0;
     width: calc(100% - 2em);
     padding: 1em;

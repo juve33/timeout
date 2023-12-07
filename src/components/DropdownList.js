@@ -8,7 +8,7 @@ function DropdownList(props) {
 
   return (
     <>
-      <h2 enabled={enabled.toString()} onClick={() => setEnabled(!enabled)} className={props.title}>{props.title}</h2>
+      <h2 enabled={enabled.toString()} onClick={() => setEnabled(!enabled)} className="dropdown-list">{props.title}</h2>
       <ul enabled={enabled.toString()} className={props.title + " " + props.color}>
         {props.children}
       </ul>
