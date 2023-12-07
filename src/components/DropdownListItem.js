@@ -10,14 +10,16 @@ function DropdownListItem(props) {
   const setFilters = useContext(SetFilterContext);
 
   const enable = () => {
-    setFilters([props.content]);
+    setFilters([...getFilters,props.content]);
   }
 
   const disable = () => {
-    setFilters([]);
+    setFilters(
+      getFilters.filter(filter => filter !== props.content)
+    );
   }
 
-  if (getFilters[0] === props.content) {
+  if (getFilters.includes(props.content)) {
     return (
       <li enabled="true" onClick={disable} className={props.color}>
         {props.content}

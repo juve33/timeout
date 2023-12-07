@@ -1,4 +1,4 @@
-.checkbox-circle {
+input.checkbox-circle {
     position: absolute;
     left: 0;
     margin-left: 5vw;
@@ -14,7 +14,7 @@
     transition: all var(--transition-duration);
 }
 
-.checkbox-circle:hover {
+input.checkbox-circle:hover {
     border-radius: 1em;
     border: 2px solid #fff;
     width: 1.2em;

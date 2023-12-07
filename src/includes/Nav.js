@@ -1,5 +1,5 @@
 import { React, useContext } from 'react';
-import { GetPageContext, SetPageContext } from '../layouts';
+import { GetPageContext, SetPageContext, defaultPageState } from '../layouts';
 
 function Nav(props) {
 
@@ -10,13 +10,13 @@ function Nav(props) {
     setPage(previousState => { return { ...previousState, loginState: 1, menuOpen: false }});
   }
   const logOut = () => {
-    setPage(previousState => { return { ...previousState, loginState: 0, menuOpen: false }});
+    setPage(defaultPageState);
   }
 
   return (
     <nav id="nav" enabled={getPage.menuOpen.toString()}>
       <ul>
-        {(getPage.loginState === 2) ? <li onClick={logOut}>Ausloggen</li> : <li onClick={logIn}>Einloggen</li>}
+        {(getPage.loginState === 2) ? <li onClick={logOut}>Log out</li> : <li onClick={logIn}>Log in</li>}
       </ul>
     </nav>
   );

@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import { SetPageContext } from '../layouts';
 
-import './login.css';
+import '../components/Forms.css';
+import '../components/Buttons.css';
 
 function Login({children}) {
 
@@ -9,19 +10,21 @@ function Login({children}) {
   const continueLogin = () => {
     setPage(previousState => { return { ...previousState, loginState: 2, menuOpen: false }});
   }
+  const cancelLogin = () => {
+    setPage(previousState => { return { ...previousState, loginState: 0, menuOpen: false }});
+  }
 
   return (
     <>
       <form className="login">
-        <label>
-          Nutzername:
-          <input type="text" placeholder="beispiel@beispiel.de" />
-        </label>
-        <label>
-          Passwort:
-          <input type="password" />
-        </label>
-        <input onClick={continueLogin} type="submit" value="Einloggen" />
+        <label for="username">Username:</label>
+        <input type="email" id="username" placeholder="example@example.org" />
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="1234" />
+        <div className="button-wrapper">
+          <input onClick={cancelLogin} type="button" value="Cancel" />
+          <input onClick={continueLogin} type="submit" value="Log in" />
+        </div>
         {children}
       </form>
     </>
