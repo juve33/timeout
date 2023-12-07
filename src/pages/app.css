@@ -25,7 +25,13 @@
 	z-index: 9998;
 }
 
-.add:hover {
+.add:hover,
+.task-form[enabled="true"] ~ .add {
 	color: var(--accent-color);
 	background-color: var(--background-color);
+}
+
+.task-form[enabled="true"] ~ .add {
+	right: calc(0rem - var(--size));
+	opacity: 0;
 }

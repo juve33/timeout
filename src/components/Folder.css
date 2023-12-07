@@ -12,7 +12,7 @@ ul.folders li {
   justify-content: center;
   align-items: center;
 	cursor: pointer;
-  transition: all var(--transition-duration);
+  transition: color var(--transition-duration), box-shadow var(--transition-duration);
 }
 
 ul.folders li:hover {
@@ -29,14 +29,43 @@ ul.folders li:nth-last-of-type(2) {
   margin-bottom: 1em;
 }
 
+form ul.folders li {
+  display: inline-block;
+
+  width: calc(25% - var(--padding-sides) - 1em);
+  padding: .5em calc(var(--padding-sides) / 2);
+  margin: 0 .5em;
+  box-shadow: inset .25em 0 var(--accent-color), inset 0px 0px 0px .1em var(--light-shadow);
+}
+
+form ul.folders li:hover {
+  box-shadow: inset .25em 0 var(--accent-color), inset 0px 0px 0px .1em var(--light-shadow);
+}
+
+ul.folders li[enabled="true"]:hover {
+  box-shadow: inset calc(var(--padding-sides) / 2) 0 var(--accent-color), inset 0px 0px 0px .1em var(--light-shadow);
+}
+
+form ul.folders li:last-of-type,
+form ul.folders li:nth-last-of-type(2) {
+  margin-bottom: 0;
+}
+
 @media screen and ((max-width: 512px) or (orientation: portrait)) {
-  ul.folders li {
+  ul.folders li,
+  form ul.folders li {
     display: inline-block;
 
     width: calc(50% - 4 * var(--padding-sides));
     margin: 1em 1em 0;
   	padding: 2em var(--padding-sides);
     box-shadow: inset .25em 0 var(--accent-color), inset 0px 0px 0px .1em var(--light-shadow);
+  }
+
+  form ul.folders li {
+    width: calc(50% - 2 * var(--padding-sides) - 1em);
+    padding: 1em calc(var(--padding-sides) / 2);
+    margin: .5em 1em;
   }
 
   ul.folders li:hover {

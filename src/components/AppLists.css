@@ -13,10 +13,10 @@ ul.tasks::-webkit-scrollbar { /* Chrome, Safari, Opera */
 	 display: none;
 }
 
-ul.folders,
-ul.tags {
+:not(form)>ul.folders,
+:not(form)>ul.tags {
   position: relative;
-  right: calc(var(--aside-width) - .5rem);
+  right: var(--aside-width);
 
   text-align: left;
   width: calc(var(--aside-width) - 1rem);
@@ -28,7 +28,7 @@ ul.tags {
   box-shadow: inset .1em 0px 0px 0px var(--light-shadow), inset -.1em 0px 0px 0px var(--light-shadow), 0px .1em 0px 0px var(--light-shadow);
 }
 
-ul.tags {
+:not(form)>ul.tags {
   text-align: center;
   max-height: calc((100vh - 9.725rem - var(--header-height)) / 2);
   max-height: calc((100svh - 9.725rem - var(--header-height)) / 2);
@@ -40,7 +40,7 @@ ul.tasks {
   width: calc(100vw - 1rem - 2 * var(--aside-width));
   height: calc(100vh - 2rem - var(--header-height));
   height: calc(100svh - 2rem - var(--header-height));
-  margin: 1rem .5rem;
+  margin: 1rem 0;
 
   user-select: unset;
   overflow-y: scroll;
@@ -52,7 +52,7 @@ ul.tags[enabled="true"] {
   overflow-y: scroll;
 }
 
-ul.tags[enabled="true"] {
+:not(form)>ul.tags[enabled="true"] {
   padding-top: .5em;
 }
 
@@ -63,7 +63,7 @@ h2.tags {
   overflow: visible;
 
   position: relative;
-  right: calc(var(--aside-width) - .5rem);
+  right: var(--aside-width);
   width: calc(.9 * var(--width));
 
 	font-size: 1rem;
@@ -87,6 +87,7 @@ h2.tasks:hover {
   color: var(--accent-color);
 }
 
+:not(form)>ul.folders li::first-letter,
 h2.folders::first-letter,
 h2.tags::first-letter,
 h2.tasks::first-letter {
@@ -131,7 +132,7 @@ h2.tags[enabled="true"]::after {
 
 @media screen and (max-width: 1080px) {
   ul.tasks {
-    width: calc(100vw - 1.5rem - var(--aside-width));
+    width: calc(100vw - 1rem - var(--aside-width));
   }
 }
 
@@ -140,8 +141,8 @@ h2.tags[enabled="true"]::after {
     --task-title-size: 2rem;
   }
 
-  ul.folders,
-  ul.tags {
+  :not(form)>ul.folders,
+  :not(form)>ul.tags {
     right: 0;
     width: 100%;
   }
@@ -155,14 +156,16 @@ h2.tags[enabled="true"]::after {
     height: calc(100vh - 3rem - var(--header-height) - var(--task-title-size));
     height: calc(100svh - 3rem - var(--header-height) - var(--task-title-size));
 
-    transition: left var(--transition-duration);
+    transition: left var(--transition-duration), opacity var(--transition-duration);
     z-index: 9997;
+    opacity: 0;
 
     background-color: var(--background-color);
   }
 
   ul.tasks[enabled="true"] {
     left: 0;
+    opacity: 1;
   }
 
   h2.folders,

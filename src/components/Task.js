@@ -12,7 +12,7 @@ function Task({ items, type }) {
 
     const hidden = () => {
       if (getFilters.length > 0) {
-        if ((items.type === getFilters[0]) || (items.tags.includes(getFilters[0]))) {
+        if ((getFilters.includes(items.type)) || (getFilters.some(f => items.tags.includes(f)))) {
           return '';
         } else {
           return ' hidden';
@@ -32,13 +32,13 @@ function Task({ items, type }) {
         }, 500);
     };
 
-    if (items.type === "Critic") {
+    if (items.type === "overdue") {
         tasktype = 'task red';
-    } else if (items.type === "Today") {
+    } else if (items.type === "today") {
         tasktype = 'task green';
-    } else if (items.type === "Incomplete") {
+    } else if (items.type === "tomorrow") {
         tasktype = 'task yellow';
-    } else if (items.type === "Planned") {
+    } else if (items.type === "soon") {
         tasktype = 'task purple';
     }
 

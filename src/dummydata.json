@@ -7,7 +7,7 @@
                 "work",
                 "urgent"
             ],
-            "type": "Critic",
+            "type": "overdue",
             "date": "2023-11-22"
         },
         {
@@ -17,7 +17,7 @@
                 "work",
                 "meeting"
             ],
-            "type": "Today",
+            "type": "today",
             "date": "2023-11-22"
         },
         {
@@ -26,7 +26,7 @@
             "tags": [
                 "finance"
             ],
-            "type": "Incomplete",
+            "type": "tomorrow",
             "date": "2023-11-23"
         },
         {
@@ -36,7 +36,7 @@
                 "work",
                 "urgent"
             ],
-            "type": "Planned",
+            "type": "soon",
             "date": "2023-11-22"
         },
         {
@@ -46,16 +46,16 @@
                 "work",
                 "meeting"
             ],
-            "type": "Today",
+            "type": "today",
             "date": "2023-11-22"
         },
         {
             "id": 6,
             "title": "Financial Analysis",
             "tags": [
-                "finance"
+                "development"
             ],
-            "type": "Incomplete",
+            "type": "tomorrow",
             "date": "2023-11-23"
         },
         {
@@ -65,7 +65,7 @@
                 "work",
                 "development"
             ],
-            "type": "Planned",
+            "type": "soon",
             "date": "2023-11-24"
         },
         {
@@ -73,9 +73,10 @@
             "title": "Client Presentation",
             "tags": [
                 "work",
-                "presentation"
+                "presentation",
+                "assignment"
             ],
-            "type": "Critic",
+            "type": "overdue",
             "date": "2023-11-24"
         },
         {
@@ -85,7 +86,7 @@
                 "work",
                 "team"
             ],
-            "type": "Today",
+            "type": "today",
             "date": "2023-11-24"
         },
         {
@@ -95,7 +96,7 @@
                 "work",
                 "update"
             ],
-            "type": "Critic",
+            "type": "overdue",
             "date": "2023-11-25"
         },
         {
@@ -105,7 +106,7 @@
                 "work",
                 "training"
             ],
-            "type": "Planned",
+            "type": "soon",
             "date": "2023-11-25"
         },
         {
@@ -115,7 +116,7 @@
                 "work",
                 "code"
             ],
-            "type": "Incomplete",
+            "type": "tomorrow",
             "date": "2023-11-26"
         },
         {
@@ -125,7 +126,7 @@
                 "work",
                 "demo"
             ],
-            "type": "Today",
+            "type": "today",
             "date": "2023-11-26"
         },
         {
@@ -135,7 +136,7 @@
                 "work",
                 "assignment"
             ],
-            "type": "Planned",
+            "type": "soon",
             "date": "2023-11-27"
         },
         {
@@ -145,7 +146,7 @@
                 "work",
                 "testing"
             ],
-            "type": "Critic",
+            "type": "overdue",
             "date": "2023-11-27"
         }
     ]
