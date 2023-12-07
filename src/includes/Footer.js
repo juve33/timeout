@@ -1,7 +1,7 @@
 function Footer(props) {
   return (
     <footer className={props.color}>
-      Platz für z.B. Copyright
+      space for leagal stuff
     </footer>
   );
 }
