@@ -10,8 +10,8 @@ function TaskList(props) {
 
   return (
     <>
-      <h2 enabled={(getFilters.length !== 0).toString()} onClick={() => setFilters([])} className={"tasks"}>{props.title}</h2>
-      <ul enabled={(getFilters.length !== 0).toString()} className={"tasks " + props.color}>
+      <h2 enabled={((getFilters[0].length !== 0) || (getFilters[1].length !== 0)).toString()} onClick={() => {setFilters[0]([]);setFilters[1]([]);}} className={"tasks"}>{props.title}</h2>
+      <ul enabled={((getFilters[0].length !== 0) || (getFilters[1].length !== 0)).toString()} className={"tasks " + props.color}>
         {props.children}
       </ul>
     </>

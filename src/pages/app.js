@@ -22,7 +22,8 @@ function App() {
 
   const getPage = useContext(GetPageContext);
   const setPage = useContext(SetPageContext);
-  const [activeFilters, setActiveFilters] = useState([]);
+  const [activeFolders, setActiveFolders] = useState([]);
+  const [activeTags, setActiveTags] = useState([]);
   const [tasks, setTasks] = useState(tasksData);
 
   const toggleTaskForm = () => {
@@ -44,21 +45,32 @@ function App() {
 
   return (
     <>
-      <GetFilterContext.Provider value={activeFilters}>
-        <SetFilterContext.Provider value={setActiveFilters}>
+      <GetFilterContext.Provider value={activeFolders}>
+        <SetFilterContext.Provider value={setActiveFolders}>
           <DropdownList title="folders">
             {filters.folders.map((folder) => <DropdownListItem key={folder.id} content={folder.title} color={folder.color} />)}
           </DropdownList>
+        </SetFilterContext.Provider>
+      </GetFilterContext.Provider>
+
+      <GetFilterContext.Provider value={activeTags}>
+        <SetFilterContext.Provider value={setActiveTags}>
           <DropdownList title="tags">
             {filters.tags.map((tag) => <DropdownListItem key={tag.id} content={tag.title} color={tag.color} />)}
           </DropdownList>
-          <TaskList title={activeFilters[0]}>
+        </SetFilterContext.Provider>
+      </GetFilterContext.Provider>
+
+      <GetFilterContext.Provider value={[activeFolders, activeTags]}>
+        <SetFilterContext.Provider value={[setActiveFolders, setActiveTags]}>
+          <TaskList title={"empty"}>
             {tasks.map((content) => (
               <Task items={content} type="" />
             ))}
           </TaskList>
         </SetFilterContext.Provider>
       </GetFilterContext.Provider>
+      
       <TaskForm title={getPage.taskFormTitle} onAddTask={addTask} />
       <div onClick={toggleTaskForm} className="add">+</div>
     </>

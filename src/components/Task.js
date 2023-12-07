@@ -11,8 +11,14 @@ function Task({ items, type }) {
     const getFilters = useContext(GetFilterContext);
 
     const hidden = () => {
-      if (getFilters.length > 0) {
-        if ((getFilters.includes(items.type)) || (getFilters.some(f => items.tags.includes(f)))) {
+      if ((getFilters[0].length > 0) && (getFilters[1].length > 0)) {
+        if ((getFilters[0].includes(items.type)) && (getFilters[1].some(f => items.tags.includes(f)))) {
+          return '';
+        } else {
+          return ' hidden';
+        }
+      } else if ((getFilters[0].length > 0) || (getFilters[1].length > 0)) {
+        if ((getFilters[0].includes(items.type)) || (getFilters[1].some(f => items.tags.includes(f)))) {
           return '';
         } else {
           return ' hidden';
