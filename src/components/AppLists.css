@@ -13,8 +13,8 @@ ul.tasks::-webkit-scrollbar { /* Chrome, Safari, Opera */
 	 display: none;
 }
 
-ul.folders,
-ul.tags {
+:not(form)>ul.folders,
+:not(form)>ul.tags {
   position: relative;
   right: var(--aside-width);
 
@@ -28,7 +28,7 @@ ul.tags {
   box-shadow: inset .1em 0px 0px 0px var(--light-shadow), inset -.1em 0px 0px 0px var(--light-shadow), 0px .1em 0px 0px var(--light-shadow);
 }
 
-ul.tags {
+:not(form)>ul.tags {
   text-align: center;
   max-height: calc((100vh - 9.725rem - var(--header-height)) / 2);
   max-height: calc((100svh - 9.725rem - var(--header-height)) / 2);
@@ -52,7 +52,7 @@ ul.tags[enabled="true"] {
   overflow-y: scroll;
 }
 
-ul.tags[enabled="true"] {
+:not(form)>ul.tags[enabled="true"] {
   padding-top: .5em;
 }
 
@@ -87,7 +87,7 @@ h2.tasks:hover {
   color: var(--accent-color);
 }
 
-ul.folders li::first-letter,
+:not(form)>ul.folders li::first-letter,
 h2.folders::first-letter,
 h2.tags::first-letter,
 h2.tasks::first-letter {
@@ -141,8 +141,8 @@ h2.tags[enabled="true"]::after {
     --task-title-size: 2rem;
   }
 
-  ul.folders,
-  ul.tags {
+  :not(form)>ul.folders,
+  :not(form)>ul.tags {
     right: 0;
     width: 100%;
   }

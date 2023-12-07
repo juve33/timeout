@@ -1,7 +1,7 @@
 {
   "folders" : [
     {"id": 0, "title": "overdue", "color": "red"},
-    {"id": 1, "title": "Today", "color": "green"},
+    {"id": 1, "title": "today", "color": "green"},
     {"id": 2, "title": "tomorrow", "color": "yellow"},
     {"id": 3, "title": "soon", "color": "purple"}
   ],

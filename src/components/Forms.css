@@ -9,13 +9,22 @@ form.task-form {
 
   position: absolute;
   top: 100%;
-  height: var(--height);
+  height: calc(var(--height) - 2rem);
   width: inherit;
+  margin: 1rem 0;
 
   background-color: var(--background-color);
 
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* Edge */
+
   transition: top var(--transition-duration);
   z-index: 9998;
+}
+
+form.task-form::-webkit-scrollbar { /* Chrome, Safari, Opera */
+	 display: none;
 }
 
 form.task-form[enabled="true"] {
@@ -24,9 +33,8 @@ form.task-form[enabled="true"] {
 
 label {
   --input-width: 20ch;
-  padding: .5em;
   border-radius: 2em;
-  margin-top: 2em;
+  margin-top: 1em;
   right: calc(-50% + var(--input-width));
 
   display: block;
@@ -38,6 +46,10 @@ label {
 
 label:has(input:focus) {
   color: var(--accent-color);
+}
+
+.login label {
+  margin-top: 2em;
 }
 
 .login label:first-of-type {

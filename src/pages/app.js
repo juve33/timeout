@@ -5,7 +5,7 @@ import DropdownList from '../components/DropdownList';
 import DropdownListItem from '../components/DropdownListItem';
 
 import jsonData from '../dummydata.json';
-import filters from '../filters.json';
+import filtersJSON from '../filters.json';
 import TaskList from '../components/TaskList';
 import TaskForm from '../components/TaskForm';
 import Task from '../components/Task';
@@ -13,6 +13,7 @@ import Task from '../components/Task';
 import './app.css';
 
 const data_items = jsonData.items;
+export const filters = filtersJSON;
 
 export const GetFilterContext = createContext();
 export const SetFilterContext = createContext();
