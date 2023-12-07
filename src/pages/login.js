@@ -17,16 +17,14 @@ function Login({children}) {
   return (
     <>
       <form className="login">
-        <label>
-          Username:
-          <input type="email" placeholder="example@example.org" />
-        </label>
-        <label>
-          Password:
-          <input type="password" />
-        </label>
-        <input onClick={cancelLogin} type="button" value="Cancel" />
-        <input onClick={continueLogin} type="submit" value="Log in" />
+        <label for="username">Username:</label>
+        <input type="email" id="username" placeholder="example@example.org" />
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="1234" />
+        <div className="button-wrapper">
+          <input onClick={cancelLogin} type="button" value="Cancel" />
+          <input onClick={continueLogin} type="submit" value="Log in" />
+        </div>
         {children}
       </form>
     </>

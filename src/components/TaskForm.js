@@ -17,12 +17,12 @@ function TaskForm(props) {
 
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
-  const [selectedFolder, setselectedFolder] = useState("");
+  const [selectedFolder, setSelectedFolder] = useState(filters.folders[0].title);
   const [selectedTags, setSelectedTags] = useState([]);
 
   const reset = () => {
     document.getElementById("taskForm").reset();
-    setselectedFolder("");
+    setSelectedFolder(filters.folders[0].title);
     setSelectedTags([]);
   }
 
@@ -36,27 +36,27 @@ function TaskForm(props) {
     <>
       <form enabled={getPage.taskFormOpen.toString()} id="taskForm" className="task-form">
         <h2>{props.title}</h2>
-        <label>
-          Description:
-          <input type="text" onChange={(e) => setDescription(e.target.value)} placeholder="make homework" />
-        </label>
-        <label>
-          Date:
-          <input type="datetime-local" onChange={(e) => setDate(e.target.value)} />
-        </label>
+        <label for="description">Description:</label>
+        <input type="text" id="description" onChange={(e) => setDescription(e.target.value)} placeholder="make homework" />
+        <label for="date">Date:</label>
+        <input type="date" id="date" onChange={(e) => setDate(e.target.value)} />
         <GetTaskFormContext.Provider value={selectedFolder}>
+          <label>Select a folder:</label>
           <ul className="folders">
-            {filters.folders.map((folder) => <FormListItem key={folder.id} enable={() => setselectedFolder(folder.title)} disable={() => setselectedFolder("")} content={folder.title} color={folder.color} />)}
+            {filters.folders.map((folder) => <FormListItem key={folder.id} enable={() => setSelectedFolder(folder.title)} content={folder.title} color={folder.color} />)}
           </ul>
         </GetTaskFormContext.Provider>
         <GetTaskFormContext.Provider value={selectedTags}>
+          <label>Select tags:</label>
           <ul className="tags">
             {filters.tags.map((tag) => <FormListItem key={tag.id} enable={() => setSelectedTags([...selectedTags,tag.title])} disable={() => setSelectedTags(selectedTags.filter(filter => filter !== tag.title))} content={tag.title} color={tag.color} />)}
           </ul>
         </GetTaskFormContext.Provider>
-        <input onClick={() => setPage(previousState => { return { ...previousState, taskFormOpen: false }})} type="button" value="Cancel" />
-        <input onClick={reset} type="button" value="Reset" />
-        <input onClick={submitForm} type="button" value="Submit" />
+        <div className="button-wrapper">
+          <input onClick={() => setPage(previousState => { return { ...previousState, taskFormOpen: false }})} type="button" value="Cancel" />
+          <input onClick={reset} type="button" value="Reset" />
+          <input onClick={submitForm} type="button" value="Submit" />
+        </div>
       </form>
     </>
   );

@@ -1,7 +1,17 @@
+form {
+  display: grid;
+  grid-template-columns: 15% 50%;
+  grid-auto-rows: 2.25rem;
+  row-gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
 form.login {
   position: relative;
-  min-height: inherit;
-  text-align: center;
+  top: calc(50% - 4.875rem);
+  height: 100%;
+  overflow: visible;
 }
 
 form.task-form {
@@ -12,6 +22,8 @@ form.task-form {
   height: calc(var(--height) - 2rem);
   width: inherit;
   margin: 1rem 0;
+
+  grid-auto-rows: auto;
 
   background-color: var(--background-color);
 
@@ -31,41 +43,25 @@ form.task-form[enabled="true"] {
   top: calc(100% - var(--height));
 }
 
+form .button-wrapper,
+.task-form h2 {
+  grid-column: 1 / span 2;
+}
+
+.task-form h2 {
+  font-size: 1.5rem;
+  padding: .5rem;
+}
+
 label {
-  --input-width: 20ch;
-  border-radius: 2em;
-  margin-top: 1em;
-  right: calc(-50% + var(--input-width));
-
-  display: block;
-  position: relative;
-  width: calc(var(--input-width) * 2);
-
-  transition: color var(--transition-duration);
-}
-
-label:has(input:focus) {
-  color: var(--accent-color);
-}
-
-.login label {
-  margin-top: 2em;
-}
-
-.login label:first-of-type {
-  margin-top: 20vh;
-  margin-top: 20svh;
+  user-select: none;
+  overflow: visible;
 }
 
 input {
     font: inherit;
 
     border: 0;
-    width: var(--input-width);
-}
-
-label>input {
-  margin-left: 1ch;
 }
 
 input:focus {
@@ -76,12 +72,28 @@ input::placeholder {
   opacity: .75;
 }
 
-.login input[type="submit"] {
-  margin-top: 3em;
-}
-
 @media screen and (max-width: 1080px) {
+  form {
+    grid-template-columns: 30% 70%;
+    row-gap: .5rem;
+  }
 }
 
-@media screen and ((max-width: 512px) or (orientation: portrait)) {
+@media screen and ((max-height: 512px) or (min-aspect-ratio: 20/9)) {
+  form {
+    grid-template-columns: 20% 80%;
+  }
+
+  form ul.folders,
+  form ul.tags {
+    overflow-y: scroll;
+    max-height: 7.75rem;
+  }
+}
+
+@media screen and (min-aspect-ratio: 3/1) {
+  form ul.folders,
+  form ul.tags {
+    max-height: 2.75rem;
+  }
 }

@@ -18,6 +18,10 @@ ul.tags li,
     user-select: none;
 }
 
+input:not([type="button"],[type="submit"]) {
+  margin: 0;
+}
+
 .tag {
   cursor: default;
   --accent-color: var(--default-accent-color);
@@ -31,6 +35,7 @@ ul.tags li:last-of-type {
   margin-bottom: .6em;
 }
 
+input:hover,
 ul.tags li:hover {
   color: var(--font-color);
 }
@@ -41,8 +46,9 @@ ul.tags li::before,
 }
 
 button:hover,
-input:hover,
 input:focus,
+input[type="button"]:hover,
+input[type="submit"]:hover,
 ul.tags li[enabled="true"] {
 	color: var(--accent-color);
 	background-color: var(--background-color);

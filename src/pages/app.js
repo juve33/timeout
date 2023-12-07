@@ -52,12 +52,12 @@ function App() {
           <DropdownList title="tags">
             {filters.tags.map((tag) => <DropdownListItem key={tag.id} content={tag.title} color={tag.color} />)}
           </DropdownList>
+          <TaskList title={activeFilters[0]}>
+            {tasks.map((content) => (
+              <Task items={content} type="" />
+            ))}
+          </TaskList>
         </SetFilterContext.Provider>
-        <TaskList title={activeFilters[0]}>
-          {tasks.map((content) => (
-            <Task items={content} type="" />
-          ))}
-        </TaskList>
       </GetFilterContext.Provider>
       <TaskForm title={getPage.taskFormTitle} onAddTask={addTask} />
       <div onClick={toggleTaskForm} className="add">+</div>
