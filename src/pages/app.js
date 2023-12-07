@@ -12,7 +12,7 @@ import Task from '../components/Task';
 
 import './app.css';
 
-const data_items = jsonData.items;
+const tasksData = jsonData.items;
 export const filters = filtersJSON;
 
 export const GetFilterContext = createContext();
@@ -23,11 +23,23 @@ function App() {
   const getPage = useContext(GetPageContext);
   const setPage = useContext(SetPageContext);
   const [activeFilters, setActiveFilters] = useState([]);
+  const [tasks, setTasks] = useState(tasksData);
 
   const toggleTaskForm = () => {
     setPage(previousState => {
       return { ...previousState, taskFormOpen: !(getPage.taskFormOpen), taskFormTitle: "Add Task" }
     });
+  }
+
+  const addTask = (description, date, folder, tags) => {
+    let _newTask = {
+        "id": tasks.length,
+        "title": description,
+        "tags": tags,
+        "type": folder,
+        "date": date
+    };
+    setTasks([...tasks,_newTask]);
   }
 
   return (
@@ -41,11 +53,11 @@ function App() {
             {filters.tags.map((tag) => <DropdownListItem key={tag.id} content={tag.title} color={tag.color} />)}
           </DropdownList>
           <TaskList title={activeFilters[0]}>
-            {data_items.map((content) => (
+            {tasks.map((content) => (
               <Task items={content} type="" />
             ))}
           </TaskList>
-          <TaskForm title={getPage.taskFormTitle} />
+          <TaskForm title={getPage.taskFormTitle} onAddTask={addTask} />
         </SetFilterContext.Provider>
       </GetFilterContext.Provider>
       <div onClick={toggleTaskForm} className="add">+</div>

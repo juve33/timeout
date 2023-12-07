@@ -28,13 +28,7 @@ function TaskForm(props) {
 
   const submitForm = () => {
     setPage(previousState => { return { ...previousState, taskFormOpen: false }});
-    let _newTask = {
-        "id": 1,
-        "title": description,
-        "tags": selectedTags,
-        "type": selectedFolder,
-        "date": date
-    };
+    props.onAddTask(description,date,selectedFolder,selectedTags);
     reset();
   }
 
