@@ -85,7 +85,7 @@ h2.tasks:hover {
   color: var(--accent-color);
 }
 
-:not(form)>ul.folders li::first-letter,
+ul.folders li::first-letter,
 h2.dropdown-list::first-letter,
 h2.tasks::first-letter {
   text-transform: uppercase;
