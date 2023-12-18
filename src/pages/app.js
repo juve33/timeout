@@ -63,14 +63,14 @@ function App() {
 
       <GetFilterContext.Provider value={[activeFolders, activeTags]}>
         <SetFilterContext.Provider value={[setActiveFolders, setActiveTags]}>
-          <TaskList title={"empty"}>
+          <TaskList title={(activeTags[0]) ? ("#" + activeTags[0]) : activeFolders[0]}>
             {tasks.map((content) => (
               <Task items={content} type="" />
             ))}
           </TaskList>
         </SetFilterContext.Provider>
       </GetFilterContext.Provider>
-      
+
       <TaskForm title={getPage.taskFormTitle} onAddTask={addTask} />
       <div onClick={toggleTaskForm} className="add">+</div>
     </>
