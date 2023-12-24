@@ -1,0 +1,25 @@
+.add {
+    display: inline-block;
+    position: fixed;
+    bottom: 5vh;
+    right: 5vw;
+    height: 80px;
+    width: 80px;
+    text-align: center;
+    justify-content: center;
+    font-size: 2.5em;
+    border-radius: 50%;
+    margin: .25em;
+    color: white;
+    background-color: black;
+    transition: color var(--transition-duration), background-color var(--transition-duration), box-shadow var(--transition-duration);
+    cursor: pointer;
+    z-index: 20;
+}
+
+.add:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: inset 0px 0px 0px .1em var(--accent-color);
+}

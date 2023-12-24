@@ -1,9 +1,17 @@
 section {
-  background-color: lightgrey;
-  min-height: 95vh;
-  padding-top: 6vh;
+  position: relative;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-weight: 400;
   --defaultbgc: white;
   --donebgc: rgba(144, 238, 144, 1);
+}
+
+main {
+  display: grid;
+  padding-top: 1vh;
+  grid-template-columns: 1fr 5fr;
+  justify-content: start;
+  align-items: start;
+  background-color: lightgrey;
+  margin-top: 6vh;
 }

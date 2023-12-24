@@ -1,0 +1,9 @@
+footer {
+    min-height: 0.25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+    color: black;
+    z-index: 100;
+}

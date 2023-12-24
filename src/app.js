@@ -1,24 +1,21 @@
-import './styles/App.css';
-import './styles/header.css';
-import jsonData from './dummydata.json';
-import Items from './items';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/layout';
+import Login from './components/Login';
+import Nav from './includes/Nav';
+import Home from './includes/Home';
 
-const data_items = jsonData.items;
 
 function App() {
-
   return (
-    <main>
-      <nav>
-        <div className='main_logo'>Timeout</div>
-      </nav>
-      <section>
-        {data_items.map((content) => (
-          <Items items={content} type="" />
-        ))}
-      </section>
-    </main >
+    <Routes>
+      <Route path="/" element={<Layout />} />
+      <Route index element={<Login />} />
+      <Route path="/main" element={<Nav />} >
+        <Route index element={<Home />} />
+      </Route>
+    </Routes>
   );
-};
+}
 
 export default App;

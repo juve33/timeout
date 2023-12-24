@@ -1,16 +1,33 @@
-.main_logo {
-    font-family: 'Italianno', Arial, Helvetica, sans-serif;
-    font-size: 4rem;
-    font-style: normal;
-    font-weight: 400;
+.header {
     display: flex;
     position: fixed;
     align-items: center;
-    justify-content: center;
+    text-align: start;
     height: 6vh;
     width: 100%;
     top: 0;
     background-color: white;
-    color: #000;
     z-index: 100;
+}
+
+.Home_button {
+    display: flex;
+    position: static;
+    align-self: flex-start;
+    position: static;
+    margin-left: 2vw;
+    width: 5vw;
+    height: 2vh;
+    border: none;
+    background-color: inherit;
+}
+
+.tit {
+    font-family: 'Italianno', Arial, Helvetica, sans-serif;
+    margin-left: 45%;
+    position: static;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 400;
+    color: #000;
 }
