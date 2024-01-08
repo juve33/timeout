@@ -1,7 +1,7 @@
-import './checkbox.css'
+import './Checkbox.css'
 function Checkbox({ value, onChange }) {
     return (
-      <input type="checkbox" checked={value} onChange={onChange} className='checkbox-circle' />
+      <input type="checkbox" checked={value} onChange={onChange} />
     );
 
 };

@@ -1,7 +1,6 @@
 import { React, useState, useContext, memo } from 'react';
 import { GetFilterContext } from '../pages/app';
 import Checkbox from './Checkbox';
-import done from './done';
 import './Task.css';
 
 import './Buttons.css';
@@ -32,36 +31,34 @@ function Task({ items, type }) {
     const [checked, setChecked] = useState(false);
 
     const handleChange = (id) => {
-        setTimeout(() => {
-            setChecked(!checked);
-            done(id);
-        }, 500);
+        setChecked(!checked);
     };
 
     if (items.type === "overdue") {
-        tasktype = 'task red';
+        tasktype = 'red';
     } else if (items.type === "today") {
-        tasktype = 'task green';
+        tasktype = 'green';
     } else if (items.type === "tomorrow") {
-        tasktype = 'task yellow';
+        tasktype = 'yellow';
     } else if (items.type === "soon") {
-        tasktype = 'task purple';
+        tasktype = 'purple';
     }
 
     return (
-        <li key={items.id} className={(checked ? 'task done red' : tasktype) + hidden()}>
-          {!checked && <Checkbox value={checked} onChange={() => handleChange(items.id)} />}
+        <li key={items.id} className={(checked ? 'done ' : '') + tasktype + hidden()}>
+          <Checkbox value={checked} onChange={() => handleChange(items.id)} />
           <div className={'data'}>
-            <div className={'title'}>{items.title}</div>
-            {!checked && <div className='date'>until: {items.date}</div>}
+            <div className={'description'}>{items.title}</div>
+            <time datetime={items.date}>until {items.date}</time>
           </div>
-          <div className='tags'>
+          <ul className='tags'>
             {items.tags.map((tag, index) => (
-              <div key={index} className='tag'>
+              <li key={index}>
                 {tag}
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
+          <div className='edit' title='Edit task'>&#8943;</div>
         </li>
     );
 }

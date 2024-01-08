@@ -80,6 +80,13 @@ input::placeholder {
   }
 }
 
+@media screen and (max-width: 512px) {
+
+  form.task-form {
+    height: calc(var(--height) - 1rem);
+  }
+}
+
 @media screen and ((max-height: 512px) or (min-aspect-ratio: 20/9)) {
   form {
     grid-template-columns: 20% 80%;

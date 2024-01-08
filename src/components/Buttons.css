@@ -1,7 +1,6 @@
 button,
 input,
-ul.tags li,
-.tag {
+ul.tags li {
     --size : 1rem;
     display: inline-block;
     font-size: var(--size);
@@ -22,33 +21,33 @@ input:not([type="button"],[type="submit"]) {
   margin: 0;
 }
 
-.tag {
+ul.tasks ul.tags li {
   cursor: default;
-  --accent-color: var(--default-accent-color);
 }
 
-ul.tags li {
+.dropdown-list+ul.tags li {
   margin: 0 .25em .5em;
 }
 
-ul.tags li:last-of-type {
+.dropdown-list+ul.tags li:last-of-type {
   margin-bottom: .6em;
 }
 
 input:hover,
-ul.tags li:hover {
+ul.tags li[enabled="false"]:hover,
+input[type="checkbox"] {
   color: var(--font-color);
 }
 
-ul.tags li::before,
-.tag::before {
+ul.tags li::before {
 	content: '#';
 }
 
 button:hover,
-input:focus,
+input:focus:not([type="checkbox"]),
 input[type="button"]:hover,
 input[type="submit"]:hover,
+input[type="checkbox"]:checked,
 ul.tags li[enabled="true"] {
 	color: var(--accent-color);
 	background-color: var(--background-color);
