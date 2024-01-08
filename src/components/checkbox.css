@@ -1,25 +1,47 @@
-input.checkbox-circle {
-    position: absolute;
-    left: 0;
-    margin-left: 5vw;
-    width: 1.4em;
-    height: 1.4em;
-    background-color: white;
-    border-radius: 50%;
-    vertical-align: middle;
-    border: 1px solid #ddd;
-    appearance: none;
-    outline: none;
-    cursor: pointer;
-    transition: all var(--transition-duration);
+input[type="checkbox"] {
+  --size: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  appearance: none;
+  position: relative;
+
+  height: var(--size);
+  width: var(--size);
+  border-radius: 50%;
+
+  box-shadow: inset 0px 0px 0px .1em var(--accent-color), inset 0px 0px 0px .2em var(--background-color);
+
+  transition: all var(--transition-duration);
 }
 
-input.checkbox-circle:hover {
-    border-radius: 1em;
-    border: 2px solid #fff;
-    width: 1.2em;
-    height: 1.2em;
-    background: #50565a;
-    box-shadow: 0 0 0 1px #000;
-    transform: rotateX(180deg);
+ul.tasks input[type="checkbox"] {
+  --size: var(--checkbox-size);
+}
+
+input[type="checkbox"]::before {
+  content: '✔';
+
+  position: absolute;
+  left: 0;
+  width: 0;
+  overflow: hidden;
+
+  font-size: calc(1.25 * var(--size));
+  text-align: center;
+
+  transition: all var(--transition-duration);
+}
+
+input[type="checkbox"]:hover::before,
+input[type="checkbox"]:checked::before {
+  width: 100%;
+}
+
+@media screen and ((max-width: 512px) or (orientation: portrait)) {
+  ul.tasks input[type="checkbox"] {
+    margin: 0 1rem;
+  }
 }

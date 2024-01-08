@@ -15,7 +15,7 @@
 
 	color: var(--background-color);
 	background-color: var(--accent-color);
-	border-radius: calc(var(--size) / 2);
+	border-radius: 50%;
 	box-shadow: 0 0 1rem var(--shadow);
 
 	transition: all var(--transition-duration);

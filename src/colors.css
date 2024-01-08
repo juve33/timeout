@@ -2,8 +2,7 @@ html {
   --font-color: #000;
 	--background-color: #fff;
 
-  --default-accent-color: #4FC1E8;
-  --accent-color: var(--default-accent-color);
+  --accent-color: #4FC1E8;
   --translucent-accent-color: rgba(79, 193, 232, 0.5);
 	--shadow: rgba(0,0,0,.25);
   --light-shadow: rgba(187,187,187,1);
