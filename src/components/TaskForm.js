@@ -40,12 +40,6 @@ function TaskForm(props) {
         <input type="text" id="description" onChange={(e) => setDescription(e.target.value)} placeholder="make homework" />
         <label for="date">Date:</label>
         <input type="date" id="date" onChange={(e) => setDate(e.target.value)} />
-        <GetTaskFormContext.Provider value={selectedFolder}>
-          <label>Select a folder:</label>
-          <ul className="folders">
-            {filters.folders.map((folder) => <FormListItem key={folder.id} enable={() => setSelectedFolder(folder.title)} content={folder.title} color={folder.color} />)}
-          </ul>
-        </GetTaskFormContext.Provider>
         <GetTaskFormContext.Provider value={selectedTags}>
           <label>Select tags:</label>
           <ul className="tags">

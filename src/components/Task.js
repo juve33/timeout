@@ -11,13 +11,13 @@ function Task({ items, type }) {
 
     const hidden = () => {
       if ((getFilters[0].length > 0) && (getFilters[1].length > 0)) {
-        if ((getFilters[0].includes(items.type)) && (getFilters[1].some(f => items.tags.includes(f)))) {
+        if ((getFilters[0].includes(tasktype)) && (getFilters[1].some(f => items.tags.includes(f)))) {
           return '';
         } else {
           return ' hidden';
         }
       } else if ((getFilters[0].length > 0) || (getFilters[1].length > 0)) {
-        if ((getFilters[0].includes(items.type)) || (getFilters[1].some(f => items.tags.includes(f)))) {
+        if ((getFilters[0].includes(tasktype)) || (getFilters[1].some(f => items.tags.includes(f)))) {
           return '';
         } else {
           return ' hidden';
@@ -28,24 +28,37 @@ function Task({ items, type }) {
     }
 
     let tasktype;
+    let color;
     const [checked, setChecked] = useState(false);
 
     const handleChange = (id) => {
         setChecked(!checked);
     };
 
-    if (items.type === "overdue") {
-        tasktype = 'red';
-    } else if (items.type === "today") {
-        tasktype = 'green';
-    } else if (items.type === "tomorrow") {
-        tasktype = 'yellow';
-    } else if (items.type === "soon") {
-        tasktype = 'purple';
+    let now = new Date(Date.now());
+    now = new Date(now.getFullYear(),now.getMonth(),now.getDate());
+    let taskdate = new Date(items.date);
+    taskdate = new Date(taskdate.getFullYear(),taskdate.getMonth(),taskdate.getDate());
+    let datedif = Date.parse(taskdate) - Date.parse(now);
+    if ((datedif <= 0) && !(now.toJSON() === taskdate.toJSON())) {
+      tasktype = "overdue";
+      color = 'red';
+    } else if ((datedif <= 86400000) && (now.toJSON() === taskdate.toJSON())) {
+      tasktype = "today";
+      color = 'green';
+    } else {
+      now.setDate(now.getDate() + 1);
+      if ((datedif <= 172800000) && (now.toJSON() === taskdate.toJSON())) {
+        tasktype = "tomorrow";
+        color = 'yellow';
+      } else {
+        tasktype = "soon";
+        color = 'purple';
+      }
     }
 
     return (
-        <li key={items.id} className={(checked ? 'done ' : '') + tasktype + hidden()}>
+        <li key={items.id} className={(checked ? 'done ' : '') + color + hidden()}>
           <Checkbox value={checked} onChange={() => handleChange(items.id)} />
           <div className={'data'}>
             <div className={'description'}>{items.title}</div>
@@ -58,7 +71,7 @@ function Task({ items, type }) {
               </li>
             ))}
           </ul>
-          <div className='edit' title='Edit task'>&#8943;</div>
+          <div className='edit' title='Edit Task'>&#8943;</div>
         </li>
     );
 }

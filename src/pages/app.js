@@ -72,7 +72,7 @@ function App() {
       </GetFilterContext.Provider>
 
       <TaskForm title={getPage.taskFormTitle} onAddTask={addTask} />
-      <div onClick={toggleTaskForm} className="add">+</div>
+      <div onClick={toggleTaskForm} className="add" title="Add Task">+</div>
     </>
   );
 }

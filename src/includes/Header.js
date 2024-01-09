@@ -14,7 +14,7 @@ function Header(props) {
 
   return (
     <header className={props.color}>
-      <div onClick={toggleNav} className="menu">
+      <div onClick={toggleNav} className="menu" title={getPage.menuOpen ? 'Close Menu' : 'Open Menu'}>
         &#x2261;
       </div>
       TimeOut
