@@ -7,7 +7,6 @@
                 "work",
                 "urgent"
             ],
-            "type": "overdue",
             "date": "2023-11-22"
         },
         {
@@ -17,8 +16,7 @@
                 "work",
                 "meeting"
             ],
-            "type": "today",
-            "date": "2023-11-22"
+            "date": "2023-12-29"
         },
         {
             "id": 3,
@@ -26,8 +24,7 @@
             "tags": [
                 "finance"
             ],
-            "type": "tomorrow",
-            "date": "2023-11-23"
+            "date": "2024-01-01"
         },
         {
             "id": 4,
@@ -36,8 +33,7 @@
                 "work",
                 "urgent"
             ],
-            "type": "soon",
-            "date": "2023-11-22"
+            "date": "2024-01-09"
         },
         {
             "id": 5,
@@ -46,8 +42,7 @@
                 "work",
                 "meeting"
             ],
-            "type": "today",
-            "date": "2023-11-22"
+            "date": "2024-01-10"
         },
         {
             "id": 6,
@@ -55,8 +50,7 @@
             "tags": [
                 "development"
             ],
-            "type": "tomorrow",
-            "date": "2023-11-23"
+            "date": "2024-01-11"
         },
         {
             "id": 7,
@@ -65,8 +59,7 @@
                 "work",
                 "development"
             ],
-            "type": "soon",
-            "date": "2023-11-24"
+            "date": "2024-01-12"
         },
         {
             "id": 8,
@@ -76,8 +69,7 @@
                 "presentation",
                 "assignment"
             ],
-            "type": "overdue",
-            "date": "2023-11-24"
+            "date": "2024-01-13"
         },
         {
             "id": 9,
@@ -86,8 +78,7 @@
                 "work",
                 "team"
             ],
-            "type": "today",
-            "date": "2023-11-24"
+            "date": "2024-01-14"
         },
         {
             "id": 10,
@@ -96,8 +87,7 @@
                 "work",
                 "update"
             ],
-            "type": "overdue",
-            "date": "2023-11-25"
+            "date": "2024-01-15"
         },
         {
             "id": 11,
@@ -106,8 +96,7 @@
                 "work",
                 "training"
             ],
-            "type": "soon",
-            "date": "2023-11-25"
+            "date": "2024-01-20"
         },
         {
             "id": 12,
@@ -116,8 +105,7 @@
                 "work",
                 "code"
             ],
-            "type": "tomorrow",
-            "date": "2023-11-26"
+            "date": "2024-01-22"
         },
         {
             "id": 13,
@@ -126,8 +114,7 @@
                 "work",
                 "demo"
             ],
-            "type": "today",
-            "date": "2023-11-26"
+            "date": "2024-01-26"
         },
         {
             "id": 14,
@@ -136,8 +123,7 @@
                 "work",
                 "assignment"
             ],
-            "type": "soon",
-            "date": "2023-11-27"
+            "date": "2024-01-28"
         },
         {
             "id": 15,
@@ -146,8 +132,7 @@
                 "work",
                 "testing"
             ],
-            "type": "overdue",
-            "date": "2023-11-27"
+            "date": "2024-01-30"
         }
     ]
 }
