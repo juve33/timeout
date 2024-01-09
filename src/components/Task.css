@@ -9,6 +9,7 @@ ul.tasks li:not(ul.tags li) {
   align-items: center;
 
   width: 100%;
+  overflow: visible;
 }
 
 ul.tasks li:not(ul.tags li):first-of-type {
@@ -79,6 +80,25 @@ ul.tasks ul.tags {
 
 .edit:hover {
   color: var(--accent-color);
+}
+
+.edit-menu {
+  display: grid;
+  position: absolute;
+  top: calc(50% + .5rem);
+  right: calc(-6ch - 1.5rem);
+
+  transition: right var(--transition-duration);
+  z-index: 1;
+}
+
+.edit:hover+.edit-menu,
+.edit-menu:hover {
+  right: 0;
+}
+
+.edit-menu button {
+  display: block;
 }
 
 @media screen and ((max-width: 512px) or (orientation: portrait)) {

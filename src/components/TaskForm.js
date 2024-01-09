@@ -17,18 +17,16 @@ function TaskForm(props) {
 
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
-  const [selectedFolder, setSelectedFolder] = useState(filters.folders[0].title);
   const [selectedTags, setSelectedTags] = useState([]);
 
   const reset = () => {
     document.getElementById("taskForm").reset();
-    setSelectedFolder(filters.folders[0].title);
     setSelectedTags([]);
   }
 
   const submitForm = (e) => {
     setPage(previousState => { return { ...previousState, taskFormOpen: false }});
-    props.onAddTask(description,date,selectedFolder,selectedTags);
+    props.onAddTask(description,date,selectedTags);
     reset();
     e.preventDefault();
   }

@@ -5,19 +5,19 @@ import './Task.css';
 
 import './Buttons.css';
 
-function Task({ items, type }) {
+function Task({ item, onEdit, onDelete }) {
 
     const getFilters = useContext(GetFilterContext);
 
     const hidden = () => {
       if ((getFilters[0].length > 0) && (getFilters[1].length > 0)) {
-        if ((getFilters[0].includes(tasktype)) && (getFilters[1].some(f => items.tags.includes(f)))) {
+        if ((getFilters[0].includes(tasktype)) && (getFilters[1].some(f => item.tags.includes(f)))) {
           return '';
         } else {
           return ' hidden';
         }
       } else if ((getFilters[0].length > 0) || (getFilters[1].length > 0)) {
-        if ((getFilters[0].includes(tasktype)) || (getFilters[1].some(f => items.tags.includes(f)))) {
+        if ((getFilters[0].includes(tasktype)) || (getFilters[1].some(f => item.tags.includes(f)))) {
           return '';
         } else {
           return ' hidden';
@@ -37,7 +37,7 @@ function Task({ items, type }) {
 
     let now = new Date(Date.now());
     now = new Date(now.getFullYear(),now.getMonth(),now.getDate());
-    let taskdate = new Date(items.date);
+    let taskdate = new Date(item.date);
     taskdate = new Date(taskdate.getFullYear(),taskdate.getMonth(),taskdate.getDate());
     let datedif = Date.parse(taskdate) - Date.parse(now);
     if ((datedif <= 0) && !(now.toJSON() === taskdate.toJSON())) {
@@ -58,20 +58,23 @@ function Task({ items, type }) {
     }
 
     return (
-        <li key={items.id} className={(checked ? 'done ' : '') + color + hidden()}>
-          <Checkbox value={checked} onChange={() => handleChange(items.id)} />
+        <li key={item.id} className={(checked ? 'done ' : '') + color + hidden()}>
+          <Checkbox value={checked} onChange={() => handleChange(item.id)} />
           <div className={'data'}>
-            <div className={'description'}>{items.title}</div>
-            <time datetime={items.date}>until {items.date}</time>
+            <div className={'description'}>{item.title}</div>
+            <time datetime={item.date}>until {item.date}</time>
           </div>
           <ul className='tags'>
-            {items.tags.map((tag, index) => (
+            {item.tags.map((tag, index) => (
               <li key={index}>
                 {tag}
               </li>
             ))}
           </ul>
-          <div className='edit' title='Edit Task'>&#8943;</div>
+          <div className='edit' title='Task Options'>&#8943;</div>
+          <div className='edit-menu'>
+            <button onClick={onDelete} title='Delete Task irreversibly'>Delete</button>
+          </div>
         </li>
     );
 }
