@@ -1,7 +1,7 @@
 import './Checkbox.css'
 function Checkbox({ value, onChange }) {
     return (
-      <input type="checkbox" checked={value} onChange={onChange} />
+      <input type="checkbox" checked={value} onChange={onChange} title={value ? 'Uncheck' : 'Check'} />
     );
 
 };

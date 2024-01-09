@@ -71,7 +71,7 @@ function Task({ items, type }) {
               </li>
             ))}
           </ul>
-          <div className='edit' title='Edit task'>&#8943;</div>
+          <div className='edit' title='Edit Task'>&#8943;</div>
         </li>
     );
 }
