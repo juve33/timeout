@@ -17,35 +17,28 @@ function TaskForm(props) {
 
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
-  const [selectedFolder, setSelectedFolder] = useState(filters.folders[0].title);
   const [selectedTags, setSelectedTags] = useState([]);
 
   const reset = () => {
     document.getElementById("taskForm").reset();
-    setSelectedFolder(filters.folders[0].title);
     setSelectedTags([]);
   }
 
-  const submitForm = () => {
+  const submitForm = (e) => {
     setPage(previousState => { return { ...previousState, taskFormOpen: false }});
-    props.onAddTask(description,date,selectedFolder,selectedTags);
+    props.onAddTask(description,date,selectedTags);
     reset();
+    e.preventDefault();
   }
 
   return (
     <>
-      <form enabled={getPage.taskFormOpen.toString()} id="taskForm" className="task-form">
+      <form enabled={getPage.taskFormOpen.toString()} id="taskForm" className="task-form" onSubmit={submitForm}>
         <h2>{props.title}</h2>
         <label for="description">Description:</label>
-        <input type="text" id="description" onChange={(e) => setDescription(e.target.value)} placeholder="make homework" />
+        <input type="text" id="description" onChange={(e) => setDescription(e.target.value)} placeholder="make homework" required />
         <label for="date">Date:</label>
-        <input type="date" id="date" onChange={(e) => setDate(e.target.value)} />
-        <GetTaskFormContext.Provider value={selectedFolder}>
-          <label>Select a folder:</label>
-          <ul className="folders">
-            {filters.folders.map((folder) => <FormListItem key={folder.id} enable={() => setSelectedFolder(folder.title)} content={folder.title} color={folder.color} />)}
-          </ul>
-        </GetTaskFormContext.Provider>
+        <input type="date" id="date" onChange={(e) => setDate(e.target.value)} required />
         <GetTaskFormContext.Provider value={selectedTags}>
           <label>Select tags:</label>
           <ul className="tags">
@@ -55,7 +48,7 @@ function TaskForm(props) {
         <div className="button-wrapper">
           <input onClick={() => setPage(previousState => { return { ...previousState, taskFormOpen: false }})} type="button" value="Cancel" />
           <input onClick={reset} type="button" value="Reset" />
-          <input onClick={submitForm} type="button" value="Submit" />
+          <input type="submit" value="Submit" />
         </div>
       </form>
     </>

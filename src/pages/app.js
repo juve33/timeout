@@ -32,12 +32,23 @@ function App() {
     });
   }
 
-  const addTask = (description, date, folder, tags) => {
+  const toggleTaskEdit = () => {
+    setPage(previousState => {
+      return { ...previousState, taskFormOpen: !(getPage.taskFormOpen), taskFormTitle: "Edit Task" }
+    });
+  }
+
+  const deleteTask = (value) => {
+      setTasks(oldValues => {
+        return oldValues.filter(task => task !== value)
+      })
+    }
+
+  const addTask = (description, date, tags) => {
     let _newTask = {
         "id": tasks.length,
         "title": description,
         "tags": tags,
-        "type": folder,
         "date": date
     };
     setTasks([...tasks,_newTask]);
@@ -65,14 +76,14 @@ function App() {
         <SetFilterContext.Provider value={[setActiveFolders, setActiveTags]}>
           <TaskList title={(activeTags[0]) ? ("#" + activeTags[0]) : activeFolders[0]}>
             {tasks.map((content) => (
-              <Task items={content} type="" />
+              <Task key={content.id} item={content} onEdit={toggleTaskEdit} onDelete={() => deleteTask(content)} />
             ))}
           </TaskList>
         </SetFilterContext.Provider>
       </GetFilterContext.Provider>
 
       <TaskForm title={getPage.taskFormTitle} onAddTask={addTask} />
-      <div onClick={toggleTaskForm} className="add">+</div>
+      <div onClick={toggleTaskForm} className="add" title="Add Task">+</div>
     </>
   );
 }

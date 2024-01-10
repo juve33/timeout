@@ -14,7 +14,7 @@ ul.tasks::-webkit-scrollbar { /* Chrome, Safari, Opera */
 }
 
 :not(form)>ul.folders,
-:not(form)>ul.tags {
+.dropdown-list+ul.tags {
   position: relative;
   right: var(--aside-width);
 
@@ -28,7 +28,7 @@ ul.tasks::-webkit-scrollbar { /* Chrome, Safari, Opera */
   box-shadow: inset .1em 0px 0px 0px var(--light-shadow), inset -.1em 0px 0px 0px var(--light-shadow), 0px .1em 0px 0px var(--light-shadow);
 }
 
-:not(form)>ul.tags {
+.dropdown-list+ul.tags {
   text-align: center;
   max-height: calc((100vh - 9.725rem - var(--header-height)) / 2);
   max-height: calc((100svh - 9.725rem - var(--header-height)) / 2);
@@ -52,7 +52,7 @@ ul.tags[enabled="true"] {
   overflow-y: scroll;
 }
 
-:not(form)>ul.tags[enabled="true"] {
+ul.tags[enabled="true"] {
   padding-top: .5em;
 }
 
@@ -136,7 +136,7 @@ h2.dropdown-list[enabled="true"]::after {
   }
 
   :not(form)>ul.folders,
-  :not(form)>ul.tags {
+  .dropdown-list+ul.tags {
     right: 0;
     width: 100%;
   }
