@@ -78,7 +78,8 @@ ul.tasks ul.tags {
   transition: color var(--transition-duration);
 }
 
-.edit:hover {
+.edit:hover,
+ul.tasks li:has(.edit-menu:hover) .edit {
   color: var(--accent-color);
 }
 
