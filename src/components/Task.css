@@ -89,13 +89,16 @@ ul.tasks li:has(.edit-menu:hover) .edit {
   top: calc(50% + .5rem);
   right: calc(-6ch - 1.5rem);
 
-  transition: right var(--transition-duration);
+  opacity: 0;
+
+  transition: right var(--transition-duration), opacity var(--transition-duration);
   z-index: 1;
 }
 
 .edit:hover+.edit-menu,
 .edit-menu:hover {
   right: 0;
+  opacity: 1;
 }
 
 .edit-menu button {
