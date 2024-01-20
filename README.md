@@ -8,7 +8,7 @@ npm install
 ```
 
 ## How To Run
-Create the file `mern/server/config.env` with your Atlas URI and the server port:
+Create the file `server/config.env` with your Atlas URI and the server port:
 ```
 ATLAS_URI=mongodb+srv://<username>:<password>@sandbox.jadwj.mongodb.net/
 ```
@@ -24,7 +24,3 @@ Start Web server
 cd client
 npm start
 ```
-
-## Disclaimer
-
-Use at your own risk; not a supported MongoDB product
