@@ -1,11 +1,11 @@
-import { React, createContext, useContext, useState, memo } from 'react';
+import { React, createContext, useContext, useState, useEffect, memo } from 'react';
 import { GetPageContext, SetPageContext } from '../layouts';
-
-import DropdownList from '../components/DropdownList';
-import DropdownListItem from '../components/DropdownListItem';
 
 import jsonData from '../dummydata.json';
 import filtersJSON from '../filters.json';
+
+import DropdownList from '../components/DropdownList';
+import DropdownListItem from '../components/DropdownListItem';
 import TaskList from '../components/TaskList';
 import TaskForm from '../components/TaskForm';
 import Task from '../components/Task';
@@ -38,20 +38,58 @@ function App() {
     });
   }
 
-  const deleteTask = (value) => {
+  useEffect(() => {
+    async function getTasks() {
+      try {
+        const response = await fetch(`http://localhost:5000/record/`);
+        const taskslist = await response.json();
+        setTasks(taskslist);
+      } catch(error) {
+        const message = `Unable to load tasks from database: ${error}`;
+        window.alert(message);
+        return;
+      }
+    }
+    getTasks();
+    return;
+ });
+
+  async function deleteTask(value) {
+    try {
+      await fetch(`http://localhost:5000/${value.id}`, {
+        method: "DELETE"
+      });
       setTasks(oldValues => {
         return oldValues.filter(task => task !== value)
-      })
+      });
+    } catch(error) {
+      const message = `Unable to delete task from database: ${error}`;
+      window.alert(message);
+      return;
     }
+  }
 
-  const addTask = (description, date, tags) => {
+  async function addTask(description, date, tags) {
     let _newTask = {
         "id": tasks.length,
         "title": description,
         "tags": tags,
         "date": date
     };
-    setTasks([...tasks,_newTask]);
+    try {
+      await fetch(`http://localhost:5000/record/add`, {
+        method: "POST",
+        headers: {
+         "Content-Type": "application/json",
+        },
+        body: JSON.stringify(_newTask),
+      });
+      setTasks([...tasks,_newTask]);
+    } catch(error) {
+      const message = `Unable to add task to database: ${error}`;
+      window.alert(message);
+      return;
+    }
   }
 
   return (

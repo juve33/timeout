@@ -1,10 +1,10 @@
-## How to Clone
+## Set up
 ```
 git clone https://github.com/juve33/timeout.git
-cd server
-npm install
+cd timeout/server
+npm install mongodb express cors dotenv
 cd ../client
-npm install
+npm install react-router-dom
 ```
 
 ## How To Run
@@ -18,7 +18,7 @@ PORT=5000
 Start server:
 ```
 cd server
-npm start
+node server.js
 ```
 
 Start Web server
