@@ -8,11 +8,17 @@ npm install react-router-dom
 ```
 
 ## How To Run
-Create the file `server/config.env` with your Atlas username and password and the server port:
+**Not necessary due to database not existing yet**
+Create the file `server/config.env` with your connection string and the server port:
 ```
-ATLAS_URI=mongodb+srv://<username>:<password>@sandbox.jadwj.mongodb.net/
-/employees?retryWrites=true&w=majority
+CONNECTION_STRING=mongodb://localhost:27017/tasks
 PORT=5000
+```
+
+**Not necessary due to database not existing yet**
+To start the database server (if hosted locally) open:
+```
+C:\Program Files\MongoDB\Server\4.4\bin\mongod.exe
 ```
 
 Start server:
