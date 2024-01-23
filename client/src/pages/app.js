@@ -1,7 +1,6 @@
 import { React, createContext, useContext, useState, useEffect, memo } from 'react';
 import { GetPageContext, SetPageContext } from '../layouts';
 
-import jsonData from '../dummydata.json';
 import filtersJSON from '../filters.json';
 
 import DropdownList from '../components/DropdownList';
@@ -12,7 +11,6 @@ import Task from '../components/Task';
 
 import './app.css';
 
-const tasksData = jsonData.items;
 export const filters = filtersJSON;
 
 export const GetFilterContext = createContext();
@@ -24,7 +22,7 @@ function App() {
   const setPage = useContext(SetPageContext);
   const [activeFolders, setActiveFolders] = useState([]);
   const [activeTags, setActiveTags] = useState([]);
-  const [tasks, setTasks] = useState(tasksData);
+  const [tasks, setTasks] = useState([]);
 
   const toggleTaskForm = () => {
     setPage(previousState => {
@@ -84,7 +82,6 @@ function App() {
         },
         body: JSON.stringify(_newTask),
       });
-      setTasks([...tasks,_newTask]);
     } catch(error) {
       const message = `Unable to add task to database: ${error}`;
       window.alert(message);
