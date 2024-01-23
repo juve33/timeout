@@ -1,4 +1,5 @@
 import { React, createContext, useState, memo } from 'react';
+import { Outlet } from "react-router-dom";
 
 import Nav from './includes/Nav';
 import Header from './includes/Header';
@@ -9,7 +10,6 @@ import './main.css';
 export const GetPageContext = createContext();
 export const SetPageContext = createContext();
 export const defaultPageState = {
-  loginState: 0,
   menuOpen: false,
   taskFormOpen: false,
   taskFormTitle: ""
@@ -26,7 +26,7 @@ function Layout({children}) {
         <main>
           <Header />
           <div className="wrapper">
-            {children}
+            <Outlet />
           </div>
         </main>
         <Footer />
