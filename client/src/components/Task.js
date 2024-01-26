@@ -1,23 +1,49 @@
 import { React, useState, useContext, memo } from 'react';
+import { useSelector } from 'react-redux';
+import { selectTaskById, useUpdateTaskMutation, useDeleteTaskMutation } from '../slices/tasksApiSlice';
 import { GetFilterContext } from '../pages/app';
 import Checkbox from './Checkbox';
 import './Task.css';
 
 import './Buttons.css';
 
-function Task({ item, onEdit, onDelete }) {
+const useUpdateTask = () => useUpdateTaskMutation();
+const useDeleteTask = () => useDeleteTaskMutation();
+
+function Task({ taskId }) {
+    const task = useSelector(state => selectTaskById(state, taskId));
+    const [updateTask] = useUpdateTask();
+    const [deleteTask] = useDeleteTask();
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleChange = async () => {
+        const { id, ...taskWithoutId } = { ...task, userID: "65ad8f78327a2ab725025b57" };
+        console.log(taskWithoutId);
+        await updateTask({
+            ...taskWithoutId,
+            completed: !task.completed,
+        });
+        console.log(task);
+        setTimeout(() => {
+            setIsChecked(true);
+        }, 500);
+    };
+
+    const onDelete = async (task) => {
+        await deleteTask({ id: task._id });
+    }
 
     const getFilters = useContext(GetFilterContext);
 
     const hidden = () => {
       if ((getFilters[0].length > 0) && (getFilters[1].length > 0)) {
-        if ((getFilters[0].includes(tasktype)) && (getFilters[1].some(f => item.tags.includes(f)))) {
+        if ((getFilters[0].includes(tasktype)) && (getFilters[1].some(f => task.tags.includes(f)))) {
           return '';
         } else {
           return ' hidden';
         }
       } else if ((getFilters[0].length > 0) || (getFilters[1].length > 0)) {
-        if ((getFilters[0].includes(tasktype)) || (getFilters[1].some(f => item.tags.includes(f)))) {
+        if ((getFilters[0].includes(tasktype)) || (getFilters[1].some(f => task.tags.includes(f)))) {
           return '';
         } else {
           return ' hidden';
@@ -29,15 +55,10 @@ function Task({ item, onEdit, onDelete }) {
 
     let tasktype;
     let color;
-    const [checked, setChecked] = useState(false);
-
-    const handleChange = (id) => {
-        setChecked(!checked);
-    };
 
     let now = new Date(Date.now());
     now = new Date(now.getFullYear(),now.getMonth(),now.getDate());
-    let taskdate = new Date(item.date);
+    let taskdate = new Date(task.date);
     taskdate = new Date(taskdate.getFullYear(),taskdate.getMonth(),taskdate.getDate());
     let datedif = Date.parse(taskdate) - Date.parse(now);
     if ((datedif <= 0) && !(now.toJSON() === taskdate.toJSON())) {
@@ -58,14 +79,14 @@ function Task({ item, onEdit, onDelete }) {
     }
 
     return (
-        <li key={item.id} className={(checked ? 'done ' : '') + color + hidden()}>
-          <Checkbox value={checked} onChange={() => handleChange(item.id)} />
+        <li key={task.id} className={(isChecked ? 'done ' : '') + color + hidden()}>
+          <Checkbox value={task.completed} onChange={handleChange} />
           <div className={'data'}>
-            <div className={'description'}>{item.title}</div>
-            <time datetime={item.date}>until {item.date}</time>
+            <div className={'description'}>{task.title}</div>
+            <time datetime={task.date}>until {task.date}</time>
           </div>
           <ul className='tags'>
-            {item.tags.map((tag, index) => (
+            {task.tags.map((tag, index) => (
               <li key={index}>
                 {tag}
               </li>
@@ -73,7 +94,7 @@ function Task({ item, onEdit, onDelete }) {
           </ul>
           <div className='edit' title='Task Options'>&#8943;</div>
           <div className='edit-menu'>
-            <button onClick={onDelete} title='Delete Task irreversibly'>Delete</button>
+            <button onClick={() => onDelete(task)} title='Delete Task irreversibly'>Delete</button>
           </div>
         </li>
     );
