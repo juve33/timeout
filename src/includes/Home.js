@@ -1,20 +1,25 @@
-import jsonData from '../data/dummydata.json';
-import Items from '../components/Items';
+import React from 'react';
 import SideBar from '../components/SideBar';
-import Add from '../features/Add';
-
-const data_items = jsonData.items;
+import TasksList from '../features/tasks/tasksListe';
+import { useNavigate } from 'react-router-dom';
+import '../styles/add.css'
 
 const Home = () => {
+    const navigate = useNavigate();
+
+    const handleAddClick = () => {
+        navigate('/home/newTask');
+    };
+
     return (
         <main>
             <nav><SideBar /></nav>
             <section>
-                <Items tasks={data_items} />
-                <Add name={'+'} />
+                <TasksList />
+                <button className='add' onClick={handleAddClick}>+</button>
             </section>
         </main>
     );
-}
+};
 
 export default Home;
