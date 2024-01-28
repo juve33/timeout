@@ -79,7 +79,7 @@ nav li:hover {
 	color: var(--accent-color);
 }
 
-nav li:last-of-type {
+nav a:last-of-type li {
 	margin-bottom: 0;
 }
 

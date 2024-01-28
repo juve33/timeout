@@ -1,11 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useRef, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setCredentials } from '../slices/authSlice';
 import { useLoginMutation } from '../slices/authApiSlice';
 
-import '../components/Forms.css';
-import '../components/Buttons.css';
+import UserForm from '../components/UserForm';
 
 function Login({children}) {
 
@@ -52,37 +51,20 @@ function Login({children}) {
 
   return (
     <>
-      <form className="login" onSubmit={handleSubmit}>
-        <p ref={errRef} className={'status red' + (errMsg ? '' : ' hidden')}>
-          {errMsg}
-        </p>
-        <label for="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          placeholder="example@example.org"
-          ref={userRef}
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <label for="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="1234"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          required
-        />
-        <div className="button-wrapper">
-          <Link to="/">
-            <input type="button" value="Cancel" />
-          </Link>
-          <input type="submit" value="Log in" disabled={isLoading} />
-        </div>
-        {children}
-      </form>
+      <UserForm
+        onSubmit={handleSubmit}
+        errRef={errRef}
+        errMsg={errMsg}
+        userRef={userRef}
+        username={username}
+        setUsername={setUsername}
+        password={password}
+        setPassword={setPassword}
+        isLoading={isLoading}
+        submitButtonText='Log in'
+        additionalButtonText='Register'
+        additionalButtonOnClick={() => {navigate('/signup')}}
+      />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import Layout from './layouts';
 import StartPage from './pages/startpage';
 import Login from './pages/login';
+import Signup from './pages/signup';
 import App from './pages/app';
 import Error404 from './pages/Error404';
 
@@ -19,6 +20,7 @@ root.render(
           <Route path="/" element={<Layout />}>
             <Route index element={<StartPage />} />
             <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
             <Route path="app" element={<App />} />
             <Route path="*" element={<Error404 />} />
           </Route>

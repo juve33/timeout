@@ -36,6 +36,7 @@ function Nav(props) {
           logOut();
           navigate("/");
         }}>Log out</li> : <Link to="/login"><li onClick={logIn}>Log in</li></Link>}
+        {(location.pathname !== "/app") ? <Link to="/signup"><li onClick={logIn}>Register</li></Link> : <></>}
       </ul>
     </nav>
   );
