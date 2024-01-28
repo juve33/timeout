@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, memo } from 'react';
+import { React, createContext, useContext, useState, useEffect, memo } from 'react';
+import { useAddNewTaskMutation } from "../slices/tasksApiSlice";
 import { GetPageContext, SetPageContext } from '../layouts';
 import { filters } from '../pages/app';
 
@@ -6,6 +7,9 @@ import FormListItem from '../components/FormListItem';
 
 import './Forms.css';
 import './Buttons.css';
+
+//import { userID } from ".";
+let userID = 1;
 
 export const GetTaskFormContext = createContext();
 export const SetTaskFormContext = createContext();
@@ -15,28 +19,40 @@ function TaskForm(props) {
   const getPage = useContext(GetPageContext);
   const setPage = useContext(SetPageContext);
 
-  const [description, setDescription] = useState("");
-  const [date, setDate] = useState("");
+  const [addNewTask, { isLoading, isSuccess }] = useAddNewTaskMutation();
+
+  const [title, setTitle] = useState('');
+  const [date, setDate] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
+
+  useEffect(() => {
+      if (isSuccess) {
+          reset();
+      }
+  }, [isSuccess]);
 
   const reset = () => {
     document.getElementById("taskForm").reset();
     setSelectedTags([]);
   }
 
-  const submitForm = (e) => {
-    setPage(previousState => { return { ...previousState, taskFormOpen: false }});
-    props.onAddTask(description,date,selectedTags);
-    reset();
+  const submitForm = async (e) => {
     e.preventDefault();
-  }
+    if (canSave()) {
+      await addNewTask({ user: userID, title, tags: selectedTags, date });
+      setPage(previousState => { return { ...previousState, taskFormOpen: false }});
+      reset();
+    }
+  };
+
+  const canSave = () => [title, date].every(Boolean) && !isLoading;
 
   return (
     <>
       <form enabled={getPage.taskFormOpen.toString()} id="taskForm" className="task-form" onSubmit={submitForm}>
         <h2>{props.title}</h2>
         <label for="description">Description:</label>
-        <input type="text" id="description" onChange={(e) => setDescription(e.target.value)} placeholder="make homework" required />
+        <input type="text" id="description" onChange={(e) => setTitle(e.target.value)} placeholder="make homework" required />
         <label for="date">Date:</label>
         <input type="date" id="date" onChange={(e) => setDate(e.target.value)} required />
         <GetTaskFormContext.Provider value={selectedTags}>
