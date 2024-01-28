@@ -10,9 +10,9 @@ npm install react-router-dom react-redux @reduxjs/toolkit
 ## How To Run
 Create the file `server/config.env` with your connection strings and the server port:
 ```env
-SECRET_KEY=secret_key
-MONGODB_URI=connection_string
-DATABASE_URI=database_link
+DATABASE_URI=connection_string
+ACCESS_TOKEN_SECRET='secret_access_token'
+REFRESH_TOKEN_SECRET='secret_refresh_token'
 PORT=5000
 ```
 
