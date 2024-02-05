@@ -39,7 +39,7 @@ function TaskForm(props) {
   const submitForm = async (e) => {
     e.preventDefault();
     if (canSave()) {
-      await addNewTask({ user: userID, title, tags: selectedTags, date });
+      await addNewTask({ user: userID, title, selectedTags, date });
       setPage(previousState => { return { ...previousState, taskFormOpen: false }});
       reset();
     }
