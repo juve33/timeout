@@ -2,14 +2,14 @@ const Task = require('../models/Task')
 const User = require('../models/User')
 const asyncHandler = require('express-async-handler')
 
-// @desc Get all tasks 
+// @desc Get all tasks
 // @route GET /tasks
 // @access Private
 const getAllTasks = asyncHandler(async (req, res) => {
     // Get all tasks from MongoDB
     const tasks = await Task.find().lean()
 
-    // If no tasks 
+    // If no tasks
     if (!tasks?.length) {
         return res.status(400).json({ message: 'No tasks found' })
     }
@@ -21,7 +21,9 @@ const getAllTasks = asyncHandler(async (req, res) => {
 // @route POST /tasks
 // @access Private
 const createNewTask = asyncHandler(async (req, res) => {
-    const { userID, title, tags, date } = req.body
+    const { user, title, selectedTags, date } = req.body;
+    const userID = user;
+    const tags = selectedTags;
 
     // Confirm data
     if (!userID || !title) {
@@ -35,10 +37,10 @@ const createNewTask = asyncHandler(async (req, res) => {
         return res.status(409).json({ message: 'Duplicate task title' })
     }
 
-    // Create and store the new user 
+    // Create and store the new user
     const task = await Task.create({ userID, title, tags, date })
 
-    if (task) { // Created 
+    if (task) { // Created
         return res.status(201).json({ message: 'New task created' })
     } else {
         return res.status(400).json({ message: 'Invalid task data received' })
@@ -67,7 +69,7 @@ const updateTask = asyncHandler(async (req, res) => {
     // Check for duplicate title
     const duplicate = await Task.findOne({ title }).lean().exec()
 
-    // Allow renaming of the original task 
+    // Allow renaming of the original task
     if (duplicate && duplicate?._id.toString() !== _id) {
         return res.status(409).json({ message: 'Duplicate task title' })
     }
@@ -93,7 +95,7 @@ const deleteTask = asyncHandler(async (req, res) => {
         return res.status(400).json({ message: 'Task ID required' })
     }
 
-    // Confirm task exists to delete 
+    // Confirm task exists to delete
     const task = await Task.findById(id).exec()
 
     if (!task) {
