@@ -32,6 +32,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 
             // store the new token
             api.dispatch(setCredentials({ ...refreshResult.data }))
+            console.log(refreshResult.data)
 
             // retry original query with new access token
             result = await baseQuery(args, api, extraOptions)

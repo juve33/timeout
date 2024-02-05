@@ -11,7 +11,7 @@ function UserForm({ onSubmit, errRef = null, errMsg, userRef = null, username, s
         <p ref={errRef} className={'status red' + (errMsg ? '' : ' hidden')}>
           {errMsg}
         </p>
-        <label for="username">Username:</label>
+        <label htmlFor="username">Username:</label>
         <input
           type="text"
           id="username"
@@ -21,7 +21,7 @@ function UserForm({ onSubmit, errRef = null, errMsg, userRef = null, username, s
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-        <label for="password">Password:</label>
+        <label htmlFor="password">Password:</label>
         <input
           type="password"
           id="password"

@@ -9,7 +9,7 @@ import './Forms.css';
 import './Buttons.css';
 
 //import { userID } from ".";
-let userID = 1;
+let userID = "65ad8f78327a2ab725025b57";
 
 export const GetTaskFormContext = createContext();
 export const SetTaskFormContext = createContext();
@@ -26,9 +26,9 @@ function TaskForm(props) {
   const [selectedTags, setSelectedTags] = useState([]);
 
   useEffect(() => {
-      if (isSuccess) {
-          reset();
-      }
+    if (isSuccess) {
+      reset();
+    }
   }, [isSuccess]);
 
   const reset = () => {
@@ -51,9 +51,9 @@ function TaskForm(props) {
     <>
       <form enabled={getPage.taskFormOpen.toString()} id="taskForm" className="task-form" onSubmit={submitForm}>
         <h2>{props.title}</h2>
-        <label for="description">Description:</label>
+        <label htmlFor="description">Description:</label>
         <input type="text" id="description" onChange={(e) => setTitle(e.target.value)} placeholder="make homework" required />
-        <label for="date">Date:</label>
+        <label htmlFor="date">Date:</label>
         <input type="date" id="date" onChange={(e) => setDate(e.target.value)} required />
         <GetTaskFormContext.Provider value={selectedTags}>
           <label>Select tags:</label>

@@ -25,15 +25,15 @@ function App() {
   const [activeTags, setActiveTags] = useState([]);
 
   const {
-      data: tasks,
-      isLoading,
-      isSuccess,
-      isError,
-      error
+    data: tasks,
+    isLoading,
+    isSuccess,
+    isError,
+    error
   } = useGetTasksQuery(undefined, {
-      pollingInterval: 20000,
-      refetchOnFocus: true,
-      refetchOnMountOrArgChange: true
+    pollingInterval: 20000,
+    refetchOnFocus: true,
+    refetchOnMountOrArgChange: true
   });
 
   let content;
