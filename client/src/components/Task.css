@@ -1,4 +1,4 @@
-ul.tasks li:not(ul.tags li) {
+ul.tasks li:not(ul.tags li):not(.hidden) {
   --checkbox-size: 2.5rem;
 
   position: relative;

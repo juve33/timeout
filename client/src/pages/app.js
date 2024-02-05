@@ -26,7 +26,6 @@ function App() {
 
   const {
     data: tasks,
-    isLoading,
     isSuccess,
     isError,
     error
@@ -70,7 +69,6 @@ function App() {
       <GetFilterContext.Provider value={[activeFolders, activeTags]}>
         <SetFilterContext.Provider value={[setActiveFolders, setActiveTags]}>
           <TaskList title={(activeTags[0]) ? ("#" + activeTags[0]) : activeFolders[0]}>
-            <p className={(isLoading ? 'hidden ' : '') + 'status'}>Loading ...</p>
             <p className={(isError ? 'hidden ' : '') + 'status'}>{error?.data?.message}</p>
             {content}
           </TaskList>
