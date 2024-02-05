@@ -54,7 +54,8 @@ ul.tasks :has(:checked) .description {
 }
 
 ul.tasks :has(:checked) .data,
-ul.tasks .done ul.tags {
+ul.tasks .done ul.tags,
+ul.tasks :has(:checked) ul.tags {
   opacity: .5;
 }
 

@@ -83,7 +83,7 @@ function Task({ taskId }) {
         <Checkbox value={task.completed} onChange={handleChange} />
         <div className={'data'}>
           <div className={'description'}>{task.title}</div>
-          <time datetime={task.date}>until {task.date}</time>
+          <time dateTime={task.date}>until {task.date}</time>
         </div>
         <ul className='tags'>
           {task.tags.map((tag, index) => (
