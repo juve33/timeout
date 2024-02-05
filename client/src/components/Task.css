@@ -32,8 +32,6 @@ ul.tasks time {
   transition: left var(--transition-duration);
 }
 
-.done .description,
-ul.tasks .done time,
 ul.tasks :has(:checked) .description,
 ul.tasks :has(:checked) time {
   left: var(--inset);
@@ -48,13 +46,11 @@ ul.tasks time {
     font-weight: 100;
 }
 
-.done .description,
 ul.tasks :has(:checked) .description {
     text-decoration: line-through;
 }
 
 ul.tasks :has(:checked) .data,
-ul.tasks .done ul.tags,
 ul.tasks :has(:checked) ul.tags {
   opacity: .5;
 }

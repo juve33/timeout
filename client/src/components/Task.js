@@ -79,7 +79,7 @@ function Task({ taskId }) {
   }
 
   return (
-      <li key={task.id} className={(isChecked ? 'done ' : '') + color + hidden()}>
+      <li key={task.id} className={color + hidden()}>
         <Checkbox value={task.completed} onChange={handleChange} />
         <div className={'data'}>
           <div className={'description'}>{task.title}</div>
